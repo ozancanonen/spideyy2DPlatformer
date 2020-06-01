@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - Ground
+  - Grappable
+  - Web
+  - UpGround
+  - RightGround
+  - LeftGround
+  - Pullable
+  - GrappleBullet
+  - WebBullet
+  - GrappleWeb
+  - GrabbleWeb
+  - GrappleBossBullet
+  - BossGrappleWeb
+  - WaterDroplet
+  - InterObject
+  - Wormling
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Ground
+  - Background
+  - Web
+  - Player
+  - BossWeb
+  - Enemy
+  - WaspBoss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 1391348125
+    locked: 0
+  - name: Ground
+    uniqueID: 3124854455
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Foreground
+    uniqueID: 2906590527
+    locked: 0
