@@ -1,0 +1,542 @@
+fileFormatVersion: 2
+guid: 5426eb0c73a261d4a919f65ea24028c8
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 80
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: Vines copy 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6677
+      width: 217
+      height: 608
+    spriteID: cc306ef0655217c49aab39508dc9e9b2
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3923, y: 5865}
+  - name: Vines copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 675
+      y: 4621
+      width: 217
+      height: 730
+    spriteID: e1b4c43342a8a8f40b0e7c4846f1ee92
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -2883, y: 3086}
+  - name: Vines
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4621
+      width: 663
+      height: 1316
+    spriteID: cf1ddfbeb76d58a47850dfe34c015f09
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -2785, y: 4488}
+  - name: Lower Branch
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1031
+      y: 1788
+      width: 1080
+      height: 207
+    spriteID: 759b821711656e14a98a83bb3e1eb231
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -1532, y: 1653}
+  - name: SMCopy2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 675
+      y: 5359
+      width: 303
+      height: 192
+    spriteID: 7af4e0a404038344ab4d6cbad66e947a
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3595, y: 4483}
+  - name: SMCopy3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 675
+      y: 5559
+      width: 281
+      height: 189
+    spriteID: 48fc0dd96aff9cd47b31e2bafed0b46b
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3829, y: 4492}
+  - name: SMCopy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 6677
+      width: 281
+      height: 189
+    spriteID: 46471943b4bd54645a56dd9786fb84f4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -4441, y: 4890}
+  - name: SmallMushroom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 6874
+      width: 281
+      height: 189
+    spriteID: e72873ddd56d29a45a5eca1d8d7ae930
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -4671, y: 4871}
+  - name: BMCopy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 6311
+      width: 924
+      height: 358
+    spriteID: 5cc916e3fe2b80d4b81f594c536f73ee
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -4563, y: 5608}
+  - name: BigMushroom
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 5945
+      width: 989
+      height: 358
+    spriteID: e647ea0857ec4664d953d31adc75b42d
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3942, y: 4443}
+  - name: Lower Branch copy 8
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 675
+      y: 5756
+      width: 222
+      height: 133
+    spriteID: 627710954eaee6148adee78477ed1207
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3247, y: 4941}
+  - name: Lower Branch copy 7
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 7071
+      width: 222
+      height: 133
+    spriteID: 7cc970230a1cdb242b10252878958666
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -3322, y: 5540}
+  - name: C shape
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 4057
+      height: 1776
+    spriteID: 8555eabcd1b47a24c8dc989484bf3cc3
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -667, y: -805}
+  - name: "G\xF6vde"
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1788
+      width: 1019
+      height: 2825
+    spriteID: adda30e925abddb448d8b01c8d1490a4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -4526, y: 1707}
+  platformSettings:
+  - name: Default
+    overridden: 1
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  importedTextureWidth: 4096
+  importedTextureHeight: 8192
+  documentSize: {x: 6212, y: 3060}
+  paperDollMode: 0
+  keepDupilcateSpriteName: 0
+  spriteCategoryList:
+    categories: []
+  textureActualWidth: 4096
+  textureActualHeight: 8192
+  spritePackingTag: 
+  resliceFromLayer: 0
+  characterMode: 1
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Vines copy 2
+    spriteName: Vines copy 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cc306ef0655217c49aab39508dc9e9b2
+    layerID: 80
+    mosaicPosition: {x: 4, y: 6677}
+  - name: Vines copy
+    spriteName: Vines copy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e1b4c43342a8a8f40b0e7c4846f1ee92
+    layerID: 79
+    mosaicPosition: {x: 675, y: 4621}
+  - name: Vines
+    spriteName: Vines
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cf1ddfbeb76d58a47850dfe34c015f09
+    layerID: 78
+    mosaicPosition: {x: 4, y: 4621}
+  - name: Lower Branch
+    spriteName: Lower Branch
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 759b821711656e14a98a83bb3e1eb231
+    layerID: 77
+    mosaicPosition: {x: 1031, y: 1788}
+  - name: SMCopy2
+    spriteName: SMCopy2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7af4e0a404038344ab4d6cbad66e947a
+    layerID: 71
+    mosaicPosition: {x: 675, y: 5359}
+  - name: SMCopy3
+    spriteName: SMCopy3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 48fc0dd96aff9cd47b31e2bafed0b46b
+    layerID: 70
+    mosaicPosition: {x: 675, y: 5559}
+  - name: SMCopy
+    spriteName: SMCopy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 46471943b4bd54645a56dd9786fb84f4
+    layerID: 69
+    mosaicPosition: {x: 229, y: 6677}
+  - name: SmallMushroom
+    spriteName: SmallMushroom
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e72873ddd56d29a45a5eca1d8d7ae930
+    layerID: 67
+    mosaicPosition: {x: 229, y: 6874}
+  - name: BMCopy
+    spriteName: BMCopy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 5cc916e3fe2b80d4b81f594c536f73ee
+    layerID: 74
+    mosaicPosition: {x: 4, y: 6311}
+  - name: BigMushroom
+    spriteName: BigMushroom
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e647ea0857ec4664d953d31adc75b42d
+    layerID: 73
+    mosaicPosition: {x: 4, y: 5945}
+  - name: Lower Branch copy 8
+    spriteName: Lower Branch copy 8
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 627710954eaee6148adee78477ed1207
+    layerID: 76
+    mosaicPosition: {x: 675, y: 5756}
+  - name: Lower Branch copy 7
+    spriteName: Lower Branch copy 7
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7cc970230a1cdb242b10252878958666
+    layerID: 75
+    mosaicPosition: {x: 229, y: 7071}
+  - name: Spares
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 00000000000000000000000000000000
+    layerID: 90
+    mosaicPosition: {x: 0, y: 0}
+  - name: C shape
+    spriteName: C shape
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 8555eabcd1b47a24c8dc989484bf3cc3
+    layerID: 64
+    mosaicPosition: {x: 4, y: 4}
+  - name: "G\xF6vde"
+    spriteName: "G\xF6vde"
+    isGroup: 0
+    parentIndex: -1
+    spriteID: adda30e925abddb448d8b01c8d1490a4
+    layerID: 45
+    mosaicPosition: {x: 4, y: 1788}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+  generateGOHierarchy: 0
+  textureAssetName: Lair1 Texture
+  prefabAssetName: Lair1 Prefab
+  spriteLibAssetName: Lair1 Sprite Lib
+  secondarySpriteTextures: []
