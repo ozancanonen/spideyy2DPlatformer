@@ -4787,8 +4787,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1388376769
+  m_SortingLayer: 1
   m_SortingOrder: 10
   m_RenderMode: 0
   m_SortMode: 0
@@ -4929,6 +4929,16 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 476274254373350139, guid: 1db24a1b8867cb3499b633f62093b796,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 476274254373350139, guid: 1db24a1b8867cb3499b633f62093b796,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1db24a1b8867cb3499b633f62093b796, type: 3}
