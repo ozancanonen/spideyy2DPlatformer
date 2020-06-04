@@ -6,16 +6,24 @@ public class OmbieChild : MonoBehaviour
 {
     [SerializeField] BoxCollider2D interactCol;
     [SerializeField] Rigidbody2D rigidbody;
+    [SerializeField] Animator wormlingAnim;
     bool isTouched = false;
+    bool isHided;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(isTouched) { return; }
+        if (!isHided&& collision.gameObject.tag == "Player")
+        {
+            wormlingAnim.SetTrigger("Hide");
+            isHided = true;
+        }
+            if (isTouched) { return; }
         if (collision.gameObject.tag == "InterObject")
         {
             isTouched = true;
             Ombie.childCount++;
+            wormlingAnim.SetTrigger("Idle");
             Debug.Log("Working, number of child returned="+ Ombie.childCount);
 
             interactCol.enabled = false;
