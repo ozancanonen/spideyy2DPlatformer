@@ -321,7 +321,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 7.5
+  orthographic size: 1.25
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -345,7 +345,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810180712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.8, y: 0.18, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -949,7 +949,7 @@ MonoBehaviour:
   - {fileID: 7416012482854148888}
   m_Bounds:
     m_Center: {x: 0.00017499924, y: 0.00000047683716, z: 0}
-    m_Extent: {x: 2.4648247, y: 1.23, z: 0}
+    m_Extent: {x: 2.4648247, y: 1.2300003, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!4 &952272390864113703
@@ -1278,8 +1278,8 @@ MonoBehaviour:
   - {fileID: 8612721883627553290}
   - {fileID: 6965174826350622756}
   m_Bounds:
-    m_Center: {x: -0.0018188357, y: 0.0000011920929, z: 0}
-    m_Extent: {x: 0.8680592, y: 2.37, z: 0}
+    m_Center: {x: -0.0018188357, y: 0.0000009536743, z: 0}
+    m_Extent: {x: 0.8680592, y: 2.3699996, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &1368828318549955526
@@ -2846,7 +2846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9107299478788668134}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.49, z: 0}
+  m_LocalPosition: {x: 0, y: -1.39, z: 0}
   m_LocalScale: {x: 0.203544, y: 0.203544, z: 0.203544}
   m_Children:
   - {fileID: 4795277929442256408}
@@ -4066,7 +4066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4082935926710872318
 Transform:
   m_ObjectHideFlags: 0
@@ -5656,8 +5656,8 @@ MonoBehaviour:
   - {fileID: 1724650456712178064}
   - {fileID: 2497846003927805557}
   m_Bounds:
-    m_Center: {x: -0.001529932, y: 0.00083589554, z: 0}
-    m_Extent: {x: 1.5472702, y: 2.2491648, z: 0}
+    m_Center: {x: -0.001529932, y: 0.0008356571, z: 0}
+    m_Extent: {x: 1.5472702, y: 2.2491646, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!4 &6004597303410409703
@@ -9396,7 +9396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &9165866465298595783
 GameObject:
   m_ObjectHideFlags: 0

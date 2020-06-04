@@ -295,6 +295,11 @@ public class PlayerController : MonoBehaviour
             DeadMenu.SetActive(true);
             rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
+        else
+        {
+            Debug.Log("get damage animation");
+            animator.SetTrigger("isHurt");
+        }
     }
 
     public void GetPoisoned()
