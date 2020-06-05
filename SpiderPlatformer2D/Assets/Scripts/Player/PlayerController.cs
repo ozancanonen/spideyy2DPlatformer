@@ -168,6 +168,7 @@ public class PlayerController : MonoBehaviour
         if (col.tag == "WaterDroplet")
         {
             col.GetComponent<Animator>().SetTrigger("getTaken");
+            audioManager.Play("WaterPop");
             Destroy(col.gameObject, 2f);
             UpdateHealth(-10);
         }
@@ -295,7 +296,7 @@ public class PlayerController : MonoBehaviour
             DeadMenu.SetActive(true);
             rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
-        else if(isAlive)
+        else if(isAlive&& damage>0)
         {
             animator.SetTrigger("isHurt");
         }

@@ -20,6 +20,9 @@ public class WaspBoss : MonoBehaviour
     [SerializeField] private Transform parentTransform;
     [SerializeField] private Transform[] spawnBehaviourTransform;
     [SerializeField] GameObject myChild;
+    [SerializeField] Animator wallAnim;
+    [SerializeField] GameObject defaultCamera;
+    [SerializeField] GameObject bossCamera;
     bool behaviourFinished;
     [SerializeField] private Animator anim;
     [SerializeField] private int spawnChildCount = 3;
@@ -230,6 +233,9 @@ public class WaspBoss : MonoBehaviour
         {
             //boss dead animation sounds etc.
             Die();
+            wallAnim.SetBool("isClosed", false);
+            defaultCamera.SetActive(true);
+            bossCamera.SetActive(false);
             GetComponent<Animator>().SetTrigger("Die");
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<CircleCollider2D>().enabled = false;

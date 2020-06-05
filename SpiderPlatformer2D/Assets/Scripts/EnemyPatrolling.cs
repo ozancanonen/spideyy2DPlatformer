@@ -8,6 +8,9 @@ public class EnemyPatrolling : MonoBehaviour
     public float speed = 10f;
     BoxCollider2D myFeet;
     [SerializeField] GameObject hitParticle;
+    [SerializeField] Animator patrolAntAnim;
+    [SerializeField] BoxCollider2D dieCollider;
+    bool isDead;
     void Start()
     {
         myFeet = GetComponent<BoxCollider2D>();
@@ -20,9 +23,9 @@ public class EnemyPatrolling : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Grappable" || collision.gameObject.tag == "Pullable")
+        if (!isDead&&collision.gameObject.tag == "Grappable" || collision.gameObject.tag == "Pullable")
             SetSpeed();
-        if (collision.gameObject.tag == "Player")
+        if (!isDead && collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
             ContactPoint2D contact = collision.contacts[0];
@@ -50,7 +53,11 @@ public class EnemyPatrolling : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        isDead = true;
+        patrolAntAnim.SetTrigger("getSquashed");
+        rigidbody.velocity = Vector3.zero;
+        dieCollider.enabled = false;
+        Destroy(gameObject,2);
     }
    
 }
