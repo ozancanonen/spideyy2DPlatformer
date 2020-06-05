@@ -10,6 +10,7 @@ public class EnemyPatrolling : MonoBehaviour
     [SerializeField] GameObject hitParticle;
     [SerializeField] Animator patrolAntAnim;
     [SerializeField] BoxCollider2D dieCollider;
+    [SerializeField] BoxCollider2D bodyCollider;
     bool isDead;
     void Start()
     {
@@ -57,6 +58,7 @@ public class EnemyPatrolling : MonoBehaviour
         patrolAntAnim.SetTrigger("getSquashed");
         rigidbody.velocity = Vector3.zero;
         dieCollider.enabled = false;
+        bodyCollider.enabled = false;
         Destroy(gameObject,2);
     }
    

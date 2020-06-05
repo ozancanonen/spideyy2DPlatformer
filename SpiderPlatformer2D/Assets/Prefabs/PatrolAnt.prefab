@@ -5170,6 +5170,7 @@ MonoBehaviour:
     type: 3}
   patrolAntAnim: {fileID: 1775669898}
   dieCollider: {fileID: 6138253627262000611}
+  bodyCollider: {fileID: 6138253625887882408}
 --- !u!50 &6138253625887882411
 Rigidbody2D:
   serializedVersion: 4
