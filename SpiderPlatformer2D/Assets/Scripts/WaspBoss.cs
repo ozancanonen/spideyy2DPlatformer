@@ -37,14 +37,13 @@ public class WaspBoss : MonoBehaviour
     int currentWaypoint = 0;
     bool isInVulnearable = false;
     bool reachedEndOfPath= false;
-    bool isChasing=false;
+    [HideInInspector] public bool isChasing =false;
     bool isDead = false;
     bool isSpawned;
     bool isSpawning;
     bool canAttackDirectly=true;
     bool isAttackReady;
-    bool isCharging;
-    bool canCharge;
+    [HideInInspector]public bool isCharging;
     float attackRateValue;
     float xScaleValue;
     float maxBossHealth;
@@ -77,17 +76,25 @@ public class WaspBoss : MonoBehaviour
             currentWaypoint = 0;
         }
     }
-    // Update is called once per frame
-     void Update()
-    {
-        chargeWaitTime -= Time.deltaTime;
-        if (chargeWaitTime <= 0)
-        {
-            canCharge = true;
-        }
-    }
     void FixedUpdate()
     {
+        if (isDead)
+        {
+            return;
+        }
+        if (!isDead&&rb.velocity.magnitude > 0.2)
+        {
+            Vector2 directionOfPlayer = ((Vector2)target.transform.position - rb.position).normalized;
+            if (directionOfPlayer.x > 0.2f)
+            {
+                transform.localScale = new Vector3(xScaleValue, transform.localScale.y, 1);
+            }
+            else if (directionOfPlayer.x < 0.2f)
+            {
+                transform.localScale = new Vector3(-xScaleValue, transform.localScale.y, 1);
+            }
+        }
+
         if (!isSpawned && isSpawning)
         {
             var newPos = Vector2.MoveTowards((Vector2)rb.position, spawnBehaviourTransform[0].position, Time.fixedDeltaTime * speed / 1000);
@@ -101,27 +108,10 @@ public class WaspBoss : MonoBehaviour
             }
         }
 
-
         else
         {
-            float distance = Vector3.Distance(target.position, transform.position);
-            if (distance < maxChaseRange && !isDead)
-            {
-                isChasing = true;
-                if (canCharge)
-                {
-                    isCharging = true;
-                    canCharge = false;
-                    chargeWaitTime = Random.Range(5, 12);
-                    anim.SetBool("Charge", true);
-                }
-                else
-                {
-                    anim.SetBool("Charge", false);
-                }
 
-            }
-            if (isChasing && !isDead && !isCharging)
+            if (isChasing && !isDead )
             {
                 if (path == null)
                 {
@@ -137,7 +127,6 @@ public class WaspBoss : MonoBehaviour
                     reachedEndOfPath = false;
                 }
                 Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-                Vector2 directionOfPlayer = ((Vector2)target.transform.position - rb.position).normalized;
                 Vector2 force = direction * speed * Time.deltaTime;
                 rb.AddForce(force);
                 float distanceBetweenWaypoints = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -146,17 +135,7 @@ public class WaspBoss : MonoBehaviour
                 {
                     currentWaypoint++;
                 }
-                if (rb.velocity.magnitude > 0.2)
-                {
-                    if (directionOfPlayer.x > 0.2f)
-                    {
-                        transform.localScale = new Vector3(xScaleValue, transform.localScale.y, 1);
-                    }
-                    else if (directionOfPlayer.x < 0.2f)
-                    {
-                        transform.localScale = new Vector3(-xScaleValue, transform.localScale.y, 1);
-                    }
-                }
+
 
             }
         }
