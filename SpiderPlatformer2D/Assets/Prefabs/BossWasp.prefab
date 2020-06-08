@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1314243333207618477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5281021465335098263}
+  m_Layer: 14
+  m_Name: ShootPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5281021465335098263
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314243333207618477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.43, y: -0.46, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4141023823758624253}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4141023823497326321
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,7 +118,7 @@ GameObject:
   - component: {fileID: 5337330416214844808}
   - component: {fileID: 4141023823758624249}
   m_Layer: 14
-  m_Name: BakedWaspBoss
+  m_Name: BossWasp
   m_TagString: Grappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,6 +138,7 @@ Transform:
   - {fileID: 4141023823497326320}
   - {fileID: 5337330416247879359}
   - {fileID: 7033149736591441943}
+  - {fileID: 5281021465335098263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -243,7 +274,13 @@ MonoBehaviour:
   bossHealthSlider: {fileID: 0}
   bossHealth: 20
   parentTransform: {fileID: 4141023823758624253}
+  spawnBehaviourTransform: []
+  myChild: {fileID: 0}
+  wallAnim: {fileID: 0}
+  defaultCamera: {fileID: 0}
+  bossCamera: {fileID: 0}
   anim: {fileID: 4141023823758624252}
+  spawnChildCount: 3
   bossAttackParticle: {fileID: 476274254373350136, guid: b74125dfe5a03324fafd5b944fa30f42,
     type: 3}
   attackOffset: {x: 1.45, y: -0.12, z: 0}
@@ -251,6 +288,11 @@ MonoBehaviour:
   attackMask:
     serializedVersion: 2
     m_Bits: 2048
+  shootPoint: {fileID: 5281021465335098263}
+  bullet: {fileID: 2261164639111186254, guid: 8c81d1d97a45ec44a94258c0ede6af48, type: 3}
+  bulletSpeed: 2000
+  isChasing: 0
+  isCharging: 0
 --- !u!1 &5337330416247879358
 GameObject:
   m_ObjectHideFlags: 0

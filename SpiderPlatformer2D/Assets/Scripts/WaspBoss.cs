@@ -30,20 +30,24 @@ public class WaspBoss : MonoBehaviour
     public Vector3 attackOffset;
     public float attackRange = 1f;
     public LayerMask attackMask;
+    [Header("Shoot Process")]
+    [SerializeField] Transform shootPoint;
+    [SerializeField] GameObject bullet;
+    [SerializeField] float bulletSpeed;
 
     Path path;
     Seeker seeker;
     Rigidbody2D rb;
     int currentWaypoint = 0;
     bool isInVulnearable = false;
-    bool reachedEndOfPath= false;
-    [HideInInspector] public bool isChasing =false;
+    bool reachedEndOfPath = false;
+    [HideInInspector] public bool isChasing = false;
     bool isDead = false;
     bool isSpawned;
     bool isSpawning;
-    bool canAttackDirectly=true;
+    bool canAttackDirectly = true;
     bool isAttackReady;
-    [HideInInspector]public bool isCharging;
+    [HideInInspector] public bool isCharging;
     float attackRateValue;
     float xScaleValue;
     float maxBossHealth;
@@ -65,8 +69,8 @@ public class WaspBoss : MonoBehaviour
     }
     void UpdatePath()
     {
-        if(seeker.IsDone()&& isChasing &&!isDead)
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        if (seeker.IsDone() && isChasing && !isDead)
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
     void OnPathComplete(Path p)
     {
@@ -82,7 +86,7 @@ public class WaspBoss : MonoBehaviour
         {
             return;
         }
-        if (!isDead&&rb.velocity.magnitude > 0.2)
+        if (!isDead && rb.velocity.magnitude > 0.2)
         {
             Vector2 directionOfPlayer = ((Vector2)target.transform.position - rb.position).normalized;
             if (directionOfPlayer.x > 0.2f)
@@ -111,7 +115,7 @@ public class WaspBoss : MonoBehaviour
         else
         {
 
-            if (isChasing && !isDead )
+            if (isChasing && !isDead)
             {
                 if (path == null)
                 {
@@ -162,7 +166,7 @@ public class WaspBoss : MonoBehaviour
         {
             getDamage(10);
         }
-         if (col.gameObject.tag == "Player" && !isDead && isCharging)
+        if (col.gameObject.tag == "Player" && !isDead && isCharging)
         {
             DamagePlayer(col.gameObject);
             isCharging = false;
@@ -194,12 +198,19 @@ public class WaspBoss : MonoBehaviour
         Destroy(particle, 0.7f);
         playerObject.GetComponent<PlayerController>().UpdateHealth(30);
     }
-
+    public void Shoot()
+    {
+        Vector3 difference = target.transform.position - shootPoint.position;
+        float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        shootPoint.rotation = Quaternion.Euler(0, 0, angleZ);
+        GameObject bulletInstance = Instantiate(bullet, shootPoint.position, Quaternion.identity);
+        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * bulletSpeed);
+    }
 
     public void getDamage(float damage)
     {
         if (isDead || isInVulnearable || bossHealth < 0) { return; }
-        if (bossHealth <= maxBossHealth / 2 &&!isSpawning&&!isSpawned)
+        if (bossHealth <= maxBossHealth / 2 && !isSpawning && !isSpawned)
         {
             isSpawning = true;
         }
@@ -242,4 +253,6 @@ public class WaspBoss : MonoBehaviour
 
         Gizmos.DrawWireSphere(pos, attackRange);
     }
+
+   
 }

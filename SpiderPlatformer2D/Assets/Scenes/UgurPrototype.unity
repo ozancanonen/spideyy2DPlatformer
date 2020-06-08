@@ -47727,6 +47727,46 @@ PrefabInstance:
       propertyPath: timeBetweenStep
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: poisonColor.r
+      value: 0.79280955
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: poisonColor.g
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: poisonColor.b
+      value: 0.112273075
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: waterColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: waterColor.g
+      value: 0.69103336
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: waterColor.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: poisonColor.a
+      value: 0.7294118
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411717651217649664, guid: 53307db50e88183438e3a6d63f6d1982,
+        type: 3}
+      propertyPath: waterColor.a
+      value: 0.7529412
+      objectReference: {fileID: 0}
     - target: {fileID: 1411717651217649665, guid: 53307db50e88183438e3a6d63f6d1982,
         type: 3}
       propertyPath: m_ConnectedAnchor.x

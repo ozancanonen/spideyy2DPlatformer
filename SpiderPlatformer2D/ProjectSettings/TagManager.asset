@@ -21,6 +21,7 @@ TagManager:
   - WaterDroplet
   - InterObject
   - Wormling
+  - WaspBossBullet
   layers:
   - Default
   - TransparentFX
@@ -38,7 +39,7 @@ TagManager:
   - Enemy
   - WaspBoss
   - WaspBossColliders
-  - 
+  - WaspBossBullet
   - 
   - 
   - 

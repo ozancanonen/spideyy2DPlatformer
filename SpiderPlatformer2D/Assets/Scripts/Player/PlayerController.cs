@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float bossGrappleForceMultiplier;
     [SerializeField] string[] stepSounds;
     [SerializeField] Boss boss;
-
+    public Color poisonColor;
+    public Color waterColor;
     public delegate void DestroySomeStuff();
     public static event DestroySomeStuff DestroyBoxesInPlayerController;
     public delegate void DestroyWeb();
@@ -168,9 +169,19 @@ public class PlayerController : MonoBehaviour
         if (col.tag == "WaterDroplet")
         {
             col.GetComponent<Animator>().SetTrigger("getTaken");
+            StartCoroutine(EffectPlayerFor(1, waterColor, 2, 2));
             audioManager.Play("WaterPop");
             Destroy(col.gameObject, 2f);
             UpdateHealth(-10);
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag=="WaspBossBullet")
+        {
+            UpdateHealth(10);
+            StartCoroutine(EffectPlayerFor(2f, poisonColor,-3,-5));
+            Destroy(collision.gameObject);
         }
     }
     private  void InteractionWithBoss()
@@ -304,14 +315,14 @@ public class PlayerController : MonoBehaviour
 
     public void GetPoisoned()
     {
-        StartCoroutine(PoisonedFor(2f));
+        StartCoroutine(EffectPlayerFor(2f,poisonColor,-3,-5));
     }
 
-    IEnumerator PoisonedFor(float time)
+    IEnumerator EffectPlayerFor(float time,Color color,float runSpeedChanger,float jumpSpeedChanger)
     {
-        runSpeed = runSpeedValue - 3; ;
-        jumpSpeed =jumpSpeedValue- 5;
-        GetComponentInChildren<SpriteRenderer>().color = Color.yellow;
+        runSpeed = runSpeedValue +runSpeedChanger; ;
+        jumpSpeed =jumpSpeedValue+jumpSpeedChanger;
+        GetComponentInChildren<SpriteRenderer>().color = color;
         yield return new WaitForSeconds(time);
         GetComponentInChildren<SpriteRenderer>().color = Color.white;
         runSpeed = runSpeedValue;
