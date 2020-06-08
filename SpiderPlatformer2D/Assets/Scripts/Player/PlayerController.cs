@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     //Config
     [SerializeField] float runSpeed;
     [SerializeField] float jumpSpeed ;
+    [SerializeField] float chargeSpeed;
+    [SerializeField] float timeBetweenCharge;
     [SerializeField] float timeBetweenStep;
     [SerializeField] float pullingForceMultiplier;
     [SerializeField] float grappleForceMultiplier;
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
     bool isFacingRight;
     bool isGrounded;
     bool isPoisoned;
+    bool canCharge=true;
 
     [Header("Wall Jump")]
     public LayerMask groundMask;
@@ -61,6 +64,7 @@ public class PlayerController : MonoBehaviour
     float runSpeedValue;
     float jumpSpeedValue;
     float timeBetweenStepValue;
+    float timeBetweenChargeValueHolder;
     void Start()
     {
         Time.timeScale = 1f;
@@ -85,6 +89,7 @@ public class PlayerController : MonoBehaviour
             FlipSprite();
             WallJump();
             ManageJumpingAndFallingAnim();
+            ChargeForce();
             if (grapple.GetIsGrapple())
             {
                 if (grapple.GetTarget() != null)
@@ -261,6 +266,41 @@ public class PlayerController : MonoBehaviour
                 Destroy(jumpParticleObject, 2f);
                 rigidBody.velocity += jumpForce;
             }
+        }
+    }
+    public void ChargeForce()//animation event de çağırlıyor
+    {
+        if (timeBetweenChargeValueHolder > 0&& !canCharge)
+        {
+
+            timeBetweenChargeValueHolder -= Time.deltaTime;
+        }
+        else
+        {
+            canCharge = true;
+            timeBetweenChargeValueHolder = timeBetweenCharge;
+        }
+
+        if (Input.GetMouseButtonDown(2)&& canCharge)
+        {
+            Debug.Log("harge");
+            Vector2 direction = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)transform.position).normalized;
+            //Vector3 dashPos;
+            //dashPos = (Vector2)transform.position + direction * chargeSpeed;
+            //RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, direction, chargeSpeed, groundMask);
+            //if (raycastHit2D.collider != null)
+            //{
+            //    dashPos = raycastHit2D.point;
+            //}
+            //rigidBody.MovePosition(dashPos);
+
+            //direction.x *= 5;
+            //rigidBody.AddForce(direction * 1000);
+            //rigidBody.velocity = Vector2.zero;
+            //rigidBody.velocity += direction.normalized* chargeSpeed;
+
+            rigidBody.AddForce(direction *100,ForceMode2D.Force);
+            canCharge = false;
         }
     }
     private void getIfGrounded() 

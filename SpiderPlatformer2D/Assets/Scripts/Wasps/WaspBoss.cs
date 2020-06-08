@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Pathfinding;
 
-public class WaspBoss : MonoBehaviour
+public class WaspBoss: MonoBehaviour 
 {
     // Start is called before the first frame update
     private Transform target;
@@ -19,7 +19,7 @@ public class WaspBoss : MonoBehaviour
     public float bossHealth;
     [SerializeField] private Transform parentTransform;
     [SerializeField] private Transform[] spawnBehaviourTransform;
-    [SerializeField] GameObject myChild;
+    [SerializeField] GameObject[] myChild;
     [SerializeField] Animator wallAnim;
     [SerializeField] GameObject defaultCamera;
     [SerializeField] GameObject bossCamera;
@@ -54,6 +54,7 @@ public class WaspBoss : MonoBehaviour
     float chargeWaitTime;
     void Start()
     {
+
         target = GameObject.FindGameObjectWithTag("Player").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
@@ -149,8 +150,9 @@ public class WaspBoss : MonoBehaviour
     {
         for (int i = 0; i < spawnChildCount; i++)
         {
-            var child = Instantiate(myChild, spawnBehaviourTransform[Random.Range(0, spawnBehaviourTransform.Length)].position, Quaternion.identity);
-            child.GetComponent<BeeEnemy>().maxChaseRange = float.MaxValue;
+            float randomScale =Random.Range(5,11) /10f;
+            var child = Instantiate(myChild[Random.Range(0, myChild.Length)], spawnBehaviourTransform[Random.Range(0, spawnBehaviourTransform.Length)].position, Quaternion.identity);
+            child.transform.localScale *= randomScale;
             yield return new WaitForSeconds(time);
         }
         //behaviourFinished = true;
@@ -159,6 +161,10 @@ public class WaspBoss : MonoBehaviour
     public void ChargeForce()//animation event de çağırlıyor
     {
         rb.AddForce((target.position - transform.position).normalized * chargeSpeed);
+    }
+    public void FinishChargingEvent()//charge animation sonunda çağırıyoruz follow yapsın diye sonrasında
+    {
+        isCharging = false;
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
@@ -239,10 +245,6 @@ public class WaspBoss : MonoBehaviour
         anim.SetTrigger("Die");
         Destroy(gameObject, 3f);
         rb.gravityScale = 4;
-    }
-    public void FinishChargingEvent()//charge animation sonunda çağırıyoruz follow yapsın diye sonrasında
-    {
-        isCharging = false;
     }
     void OnDrawGizmosSelected()
     {

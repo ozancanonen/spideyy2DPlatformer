@@ -16,7 +16,6 @@ public class PatrolBombs : MonoBehaviour
 
         for (int i = 0; i < patrolBombs.Length; i++)
         {
-            Debug.Log("working");
             var bomb = Instantiate(patrolBombs[i], transform.position, Quaternion.identity);
             bomb.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(randomXMin, randomXMax), Random.Range(randomYMin, randomYMax), 0));
             bomb.GetComponent<Explode>().ExplodeBombs(explodeTime);

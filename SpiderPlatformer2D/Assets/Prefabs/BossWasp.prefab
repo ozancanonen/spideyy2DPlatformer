@@ -113,17 +113,17 @@ GameObject:
   - component: {fileID: 4141023823758624253}
   - component: {fileID: 4141023823758624252}
   - component: {fileID: 5337330416214844809}
-  - component: {fileID: 5337330416214844811}
-  - component: {fileID: 4141023823758624248}
   - component: {fileID: 5337330416214844808}
   - component: {fileID: 4141023823758624249}
+  - component: {fileID: 548457768}
+  - component: {fileID: 548457769}
   m_Layer: 14
   m_Name: BossWasp
   m_TagString: Grappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4141023823758624253
 Transform:
   m_ObjectHideFlags: 0
@@ -131,9 +131,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4141023823758624250}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 115.64132, y: 22.268955, z: 4.196169}
-  m_LocalScale: {x: 2.2192523, y: 2.2192523, z: 4.2614827}
+  m_LocalScale: {x: 2.219252, y: 2.2192523, z: 4.2614827}
   m_Children:
   - {fileID: 4141023823497326320}
   - {fileID: 5337330416247879359}
@@ -182,48 +182,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &5337330416214844811
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4141023823758624250}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.26005077, y: 0.85}
-  serializedVersion: 2
-  m_Radius: 1.0780773
---- !u!61 &4141023823758624248
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4141023823758624250}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.5682035, y: 2.6085815}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.323613, y: 1.3841907}
-  m_EdgeRadius: 0
 --- !u!114 &5337330416214844808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,18 +222,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37b5f41a6dc9cc74c8eceb07dee41a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10000
-  chargeSpeed: 30000
+  speed: 130
+  chargeSpeed: 400
   nextWaypointDistance: 1.5
   maxChaseRange: 30
   chargeDistance: 15
-  attackRate: 1
+  attackRate: 2
   attackDamage: 30
   bossHealthSlider: {fileID: 0}
-  bossHealth: 20
+  bossHealth: 400
   parentTransform: {fileID: 4141023823758624253}
-  spawnBehaviourTransform: []
-  myChild: {fileID: 0}
+  spawnBehaviourTransform:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  myChild: {fileID: 6407807901188695629, guid: b6b8713db8fc17f4f94328de67d9a986, type: 3}
   wallAnim: {fileID: 0}
   defaultCamera: {fileID: 0}
   bossCamera: {fileID: 0}
@@ -293,6 +264,49 @@ MonoBehaviour:
   bulletSpeed: 2000
   isChasing: 0
   isCharging: 0
+--- !u!70 &548457768
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141023823758624250}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.041902687, y: -0.25999933}
+  m_Size: {x: 0.9161954, y: 0.45099697}
+  m_Direction: 1
+--- !u!68 &548457769
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4141023823758624250}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 1.1460118, y: 3.0594673}
+  - {x: 1.5573748, y: 2.5876718}
+  - {x: 1.2310705, y: 1.8367741}
+  - {x: 1.0233091, y: 2.2842436}
+  - {x: -0.11924431, y: 1.6060654}
+  - {x: -0.31693286, y: 0.016669998}
+  - {x: 0.15017097, y: -0.34859943}
+  - {x: -0.91430265, y: 0.09612064}
+  - {x: -1.2520412, y: 1.009274}
+  - {x: -0.43951872, y: 2.2626352}
+  - {x: 1.1371148, y: 3.0599177}
 --- !u!1 &5337330416247879358
 GameObject:
   m_ObjectHideFlags: 0

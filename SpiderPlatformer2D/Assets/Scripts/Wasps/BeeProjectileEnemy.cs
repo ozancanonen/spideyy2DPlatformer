@@ -3,43 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class BeeEnemy : MonoBehaviour
+public class BeeProjectileEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform target;
     public float speed;
+    public float escapeSpeed;
     public float nextWaypointDistance;
     public float maxChaseRange;
+    public float minShootRange;
+    public float maxShootRange;
     public float attackRate;
-    [SerializeField] private GameObject beeAttackParticle;
-    [SerializeField] private Transform parentTransform;
+    public float bulletSpeed;
+    [SerializeField] Transform shootPoint;
+    [SerializeField] GameObject bullet;
     [SerializeField] private Animator anim;
 
     Path path;
     Seeker seeker;
     Rigidbody2D rb;
     int currentWaypoint = 0;
-    bool reachedEndOfPath= false;
-    bool isChasing=false;
+    bool reachedEndOfPath = false;
+    bool isChasing = false;
     bool isDead = false;
-    bool canAttackDirectly=true;
-    bool isAttackReady;
     float attackRateValue;
     float xScaleValue;
+    float speedValueHolder;
+    Vector3 escapePos;
+    Vector3 targetDestination;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        targetDestination = target.position;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
         InvokeRepeating("UpdatePath", 0f, 0.5f);
         xScaleValue = transform.localScale.x;
-        attackRateValue = attackRate;
+        speedValueHolder = speed;
 
     }
     void UpdatePath()
     {
-        if(seeker.IsDone()&& isChasing &&!isDead)
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        if (seeker.IsDone() && isChasing && !isDead)
+            seeker.StartPath(rb.position, targetDestination, OnPathComplete);
     }
     void OnPathComplete(Path p)
     {
@@ -52,11 +58,29 @@ public class BeeEnemy : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        attackRateValue -= Time.deltaTime;
         float distance = Vector3.Distance(target.position, transform.position);
-        if (distance < maxChaseRange && !isDead)
+        if (distance > maxShootRange && distance < maxChaseRange && !isDead)
         {
+
             isChasing = true;
+            speed = speedValueHolder;
+            targetDestination = target.position;
+
         }
+        else if (distance > minShootRange && distance < maxShootRange && !isDead)
+        {
+
+            ShootTimer();
+            return;
+        }
+        else if (distance < minShootRange&&!isDead)
+        {
+            escapePos = transform.position +transform.position - target.position;
+            targetDestination = escapePos;
+            speed = escapeSpeed;
+        }
+        
         if (isChasing && !isDead)
         {
             if (path == null)
@@ -73,7 +97,7 @@ public class BeeEnemy : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Vector2 directionOfPlayer = ((Vector2)target.transform.position- rb.position).normalized;
+            Vector2 directionOfPlayer = ((Vector2)target.position - rb.position).normalized;
             Vector2 force = direction * speed * Time.deltaTime;
             rb.AddForce(force);
             float distanceBetweenWaypoints = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -96,53 +120,44 @@ public class BeeEnemy : MonoBehaviour
 
         }
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, minShootRange);
+        Gizmos.DrawWireSphere(transform.position, maxShootRange);
+        Gizmos.DrawWireSphere(transform.position, maxChaseRange);
+    }
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" && !isDead&& canAttackDirectly)
-        {
-                DamagePlayer(col);
-            canAttackDirectly = false;
 
-
-        }
-        if (col.gameObject.tag == "WebBullet" &&!isDead)
+        if (col.gameObject.tag == "WebBullet" && !isDead)
         {
             Die();
         }
 
     }
-    private void OnCollisionStay2D(Collision2D col)
-    {
 
-        if (col.gameObject.tag == "Player" && !isDead)
+    private void ShootTimer()
+    {
+        if (!isDead)
         {
-            attackRateValue -= Time.deltaTime;
+            
             if (attackRateValue <= 0)
             {
-                DamagePlayer(col);
+                anim.SetTrigger("ProjectileShoot");
                 attackRateValue = attackRate;
             }
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        StartCoroutine(AttackExitDelay(0.5f));
-    }
 
-    IEnumerator AttackExitDelay(float waitTime)
+    public void Shoot()
     {
-        yield return new WaitForSeconds(waitTime);
-        canAttackDirectly = true;
+        Vector3 difference = target.position - shootPoint.position;
+        float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        shootPoint.rotation = Quaternion.Euler(0, 0, angleZ);
+        Vector3 bulletFaceDirection=shootPoint.eulerAngles + new Vector3(0, 0, -90);
+        GameObject bulletInstance = Instantiate(bullet, shootPoint.position,Quaternion.Euler( bulletFaceDirection));
+        bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * bulletSpeed);
     }
-    void DamagePlayer(Collision2D col)
-        {
-        anim.SetTrigger("Attack");
-        GameObject particle = Instantiate(beeAttackParticle, col.transform.position, Quaternion.identity);
-            Destroy(particle, 0.7f);
-            col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
-        }
-
     public void Die()
     {
         isDead = true;

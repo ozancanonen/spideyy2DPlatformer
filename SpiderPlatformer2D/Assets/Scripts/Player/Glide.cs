@@ -20,6 +20,7 @@ public class Glide : MonoBehaviour
 
     void Update()
     {
+
         if (Input.GetKey(KeyCode.Space) && rb.velocity.y < -3f && glideGravity == false)
         {
             glideGravity = true;
