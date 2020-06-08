@@ -227,8 +227,7 @@ public class WaspBoss : MonoBehaviour
             defaultCamera.SetActive(true);
             bossCamera.SetActive(false);
             GetComponent<Animator>().SetTrigger("Die");
-            GetComponent<BoxCollider2D>().enabled = false;
-            GetComponent<CircleCollider2D>().enabled = false;
+            GetComponent<EdgeCollider2D>().enabled = false;
             rb.constraints = RigidbodyConstraints2D.FreezePositionX;
             //rb.isKinematic = true;
             bossHealthSlider.gameObject.SetActive(false);
