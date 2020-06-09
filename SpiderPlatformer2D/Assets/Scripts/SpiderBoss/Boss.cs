@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
 
-	public GameObject player;
-    [HideInInspector]public bool grappling;
+    public GameObject player;
+    [HideInInspector] public bool grappling;
     [HideInInspector] public bool isFlipped = false;
     bool isInVulnearable = false;
     [SerializeField] Animator wallAnim;
@@ -20,17 +20,29 @@ public class Boss : MonoBehaviour
     public Vector3 attackOffset;
     public float attackRange = 1f;
     public LayerMask attackMask;
+    Animator animator;
+    [Header("Poison Process")]
+    [SerializeField] GameObject bullet;
+    [SerializeField] float poisonSmokeSpeed;
+    [SerializeField] Transform shootPoint;
+    [SerializeField] float bombThrowForce;
+    [SerializeField] int bombCount = 3;
+    [SerializeField] GameObject bomb;
+
 
     float speedValue;
     [SerializeField] GameObject defaultCamera;
     [SerializeField] GameObject bossCamera;
     private void Start()
     {
-        speedValue = BossRunAnimation.speed;
         maxBossHealth = bossHealth;
         bossHealthSlider.maxValue = bossHealth;
+        animator = GetComponent<Animator>();
     }
+    private void Update()
+    {
 
+    }
     public void Attack()
     {
         Vector3 pos = transform.position;
@@ -45,7 +57,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    public void EnragedAttack()
+    public void ChargeAttack() //Calling from Animation Event
     {
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
@@ -84,13 +96,13 @@ public class Boss : MonoBehaviour
             isFlipped = true;
         }
     }
-    public  Vector3 BossPos()
+    public Vector3 BossPos()
     {
         return transform.position;
     }
     public void getDamage(float damage)
     {
-        if(isInVulnearable|| bossHealth < 0) { return; }
+        if (isInVulnearable || bossHealth < 0) { return; }
         if (bossHealth > 0)
         {
             bossHealth -= damage;
@@ -103,7 +115,7 @@ public class Boss : MonoBehaviour
         else
         {
             //boss dead animation sounds etc.
-            GetComponent<Animator>().SetTrigger("Die");
+            animator.SetTrigger("Die");
             wallAnim.SetBool("isClosed", false);
             defaultCamera.SetActive(true);
             bossCamera.SetActive(false);
@@ -122,11 +134,43 @@ public class Boss : MonoBehaviour
             getDamage(10);
             StartCoroutine(slowFor(2));
         }
+        if (col.gameObject.tag == "Player")
+        {
+            Debug.Log("Attack");
+            animator.SetTrigger("Attack");
+        }
     }
     IEnumerator slowFor(float time)
     {
+        speedValue = BossRunAnimation.speed;
+        if (speedValue <= 9) { yield break; }
         BossRunAnimation.speed = speedValue - 5;
         yield return new WaitForSeconds(time);
         BossRunAnimation.speed = speedValue;
+    }
+
+    public void PoisonEvent() // Calling from Animation EVENT
+    {
+        Vector3 difference = player.transform.position - shootPoint.position;
+        float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        shootPoint.rotation = Quaternion.Euler(0, 0, angleZ);
+        GameObject poisonSmoke = Instantiate(bullet, shootPoint.position, Quaternion.identity);
+        poisonSmoke.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * poisonSmokeSpeed);
+    }
+
+    public void BombEvent()
+    {
+
+        Vector3 difference = player.transform.position - shootPoint.position;
+        float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+
+        for (int i =0; i<bombCount;i++)
+        {
+
+            shootPoint.rotation = Quaternion.Euler(0, 0, angleZ+Random.Range(-10,10));
+            var newBomb = Instantiate(bomb, shootPoint.transform.position, Quaternion.identity);
+            newBomb.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * bombThrowForce);
+            newBomb.GetComponent<Explode>().ExplodeBombs(2);
+        }
     }
 }

@@ -120,7 +120,7 @@ public class BeeProjectileEnemy : MonoBehaviour
 
         }
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(transform.position, minShootRange);
         Gizmos.DrawWireSphere(transform.position, maxShootRange);

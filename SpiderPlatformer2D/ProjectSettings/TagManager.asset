@@ -22,6 +22,8 @@ TagManager:
   - InterObject
   - Wormling
   - WaspBossBullet
+  - SpiderSmoke
+  - SpiderBomb
   layers:
   - Default
   - TransparentFX
@@ -40,9 +42,9 @@ TagManager:
   - WaspBoss
   - WaspBossColliders
   - WaspBossBullet
-  - 
-  - 
-  - 
+  - SpiderSmoke
+  - SpiderBombLayer
+  - PlatformEffector
   - 
   - 
   - 

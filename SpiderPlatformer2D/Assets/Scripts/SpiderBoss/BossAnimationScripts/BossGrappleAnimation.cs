@@ -13,6 +13,7 @@ public class BossGrappleAnimation : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         boss = animator.GetComponent<Boss>();
         rb = animator.GetComponent<Rigidbody2D>();
+        boss.LookAtPlayer();
     }
 
 

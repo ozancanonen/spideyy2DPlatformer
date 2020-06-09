@@ -16,6 +16,17 @@ public class Explode : MonoBehaviour
     IEnumerator ExplodeAfterDelay(float time)
     {
         yield return new WaitForSeconds(time);
+        ExplodeBomb();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, explodeRadius);
+
+    }
+    public void ExplodeBomb()
+    {
         var particle = Instantiate(explodeParticle, transform.position, Quaternion.identity);
         Destroy(particle, 1f);
         var hitCol = Physics2D.OverlapCircle(transform.position, explodeRadius, whatToHit);
@@ -24,12 +35,5 @@ public class Explode : MonoBehaviour
             hitCol.GetComponent<PlayerController>().UpdateHealth(explodeDamage);
         }
         Destroy(gameObject);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, explodeRadius);
-
     }
 }

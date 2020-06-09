@@ -65,6 +65,9 @@ public class PlayerController : MonoBehaviour
     float jumpSpeedValue;
     float timeBetweenStepValue;
     float timeBetweenChargeValueHolder;
+    float poisonTime;
+    [SerializeField] int poisonDamage;
+    [SerializeField] float poisonRate;
     void Start()
     {
         Time.timeScale = 1f;
@@ -179,15 +182,44 @@ public class PlayerController : MonoBehaviour
             Destroy(col.gameObject, 2f);
             UpdateHealth(-10);
         }
+      
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag=="WaspBossBullet")
+        if (collision.gameObject.tag == "WaspBossBullet")
         {
             UpdateHealth(10);
-            StartCoroutine(EffectPlayerFor(2f, poisonColor,-3,-5));
+            StartCoroutine(EffectPlayerFor(2f, poisonColor, -3, -5));
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.tag == "SpiderBomb")
+        {
+            collision.gameObject.GetComponent<Explode>().ExplodeBomb();
+        }
+    }
+
+    private void OnParticleCollision(GameObject other)
+    {
+        if (other.gameObject.tag == "SpiderSmoke")
+        {
+            UpdateHealth(0.25f);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        //if (collision.tag == "SpiderSmoke")
+        //{
+        //    Debug.Log("SA");
+        //    poisonTime += Time.deltaTime;
+        //    if (poisonTime >= poisonRate)
+        //    {
+        //        poisonTime = 0;
+        //        UpdateHealth(poisonDamage);
+        //    }
+        //}
+        
     }
     private  void InteractionWithBoss()
     {
@@ -335,7 +367,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("isFalling", false);
         }
     }
-    public void UpdateHealth(int damage)
+    public void UpdateHealth(float damage)
     {
         
         playerHealth -= damage;
