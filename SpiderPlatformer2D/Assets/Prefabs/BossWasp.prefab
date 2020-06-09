@@ -123,7 +123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4141023823758624253
 Transform:
   m_ObjectHideFlags: 0
@@ -180,7 +180,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &5337330416214844808
 MonoBehaviour:
@@ -246,7 +246,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  myChild: {fileID: 6407807901188695629, guid: b6b8713db8fc17f4f94328de67d9a986, type: 3}
+  myChild:
+  - {fileID: 6407807901188695629, guid: b6b8713db8fc17f4f94328de67d9a986, type: 3}
+  - {fileID: 6586188273996670838, guid: faea1792a84c2b44f92b4b0b276c8af3, type: 3}
+  - {fileID: 6407807901188695629, guid: eb6048f5a2416464b8af3863f2a2e07a, type: 3}
   wallAnim: {fileID: 0}
   defaultCamera: {fileID: 0}
   bossCamera: {fileID: 0}

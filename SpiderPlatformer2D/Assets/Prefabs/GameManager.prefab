@@ -1268,7 +1268,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1411717650188709354
 Transform:
   m_ObjectHideFlags: 0
@@ -1277,7 +1277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411717650188709357}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.036678314, y: -1.9018822, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1411717650633262128}
@@ -1643,7 +1643,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2191,7 +2191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1411717650695190631
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2804,27 +2804,48 @@ MonoBehaviour:
   sounds:
   - name: guitar
     clip: {fileID: 8300000, guid: 3ab136113af80e943b857beff946c525, type: 3}
-    volume: 0.15
+    volume: 0.1
     pitch: 1
     priority: 0
     loop: 1
     source: {fileID: 0}
   - name: SpiderWalk1
-    clip: {fileID: 8300000, guid: 846c5352ce3c578489248669242ec949, type: 3}
-    volume: 0.7
+    clip: {fileID: 8300000, guid: a9d7643d026718a4e8498b72977d084d, type: 3}
+    volume: 0.3
     pitch: 1
     priority: 0
     loop: 0
     source: {fileID: 0}
   - name: SpiderWalk2
-    clip: {fileID: 8300000, guid: 29aa67685346bbc4faf57ea83228f643, type: 3}
-    volume: 0.7
+    clip: {fileID: 8300000, guid: bb9acab8f4857024aae2e91d1f6fa8b1, type: 3}
+    volume: 0.3
     pitch: 1
     priority: 0
     loop: 0
     source: {fileID: 0}
   - name: SpiderWalk3
-    clip: {fileID: 8300000, guid: ee99340d0e9e6e04cb18515daaabcd50, type: 3}
+    clip: {fileID: 8300000, guid: 0ab9c81ab03b8334b90ab05d18c39e00, type: 3}
+    volume: 0.3
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: SpiderWalk4
+    clip: {fileID: 8300000, guid: ccb4bc2d65eae2d47a0f426b4e854497, type: 3}
+    volume: 0.3
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: SpiderWalk5
+    clip: {fileID: 8300000, guid: d809d2149337a4f4f9628ee0949e74e2, type: 3}
+    volume: 0.3
+    pitch: 1
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: WaterPop
+    clip: {fileID: 8300000, guid: 400783089fb0db248802f0c1080076d3, type: 3}
     volume: 0.7
     pitch: 1
     priority: 0
@@ -2832,17 +2853,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: SpiderWebShoot
     clip: {fileID: 8300000, guid: bdb057c59a097874288c9329ea6b706c, type: 3}
-    volume: 0.68
+    volume: 0.3
     pitch: 1
     priority: 0
     loop: 0
     source: {fileID: 0}
   - name: Bass
     clip: {fileID: 8300000, guid: 6509044047206fa498a0528204854af0, type: 3}
-    volume: 0.2
+    volume: 0.7
     pitch: 1
     priority: 0
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   mute: 0
 --- !u!1 &1411717651179960400
@@ -3139,7 +3160,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1411717651300093142
 Transform:
   m_ObjectHideFlags: 0
@@ -3177,7 +3198,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1411717651217649677}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 7
+    OrthographicSize: 8
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3871,11 +3892,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.1
+      value: 77.2
       objectReference: {fileID: 0}
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.549999
+      value: 14.599999
       objectReference: {fileID: 0}
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3919,7 +3940,7 @@ PrefabInstance:
     - target: {fileID: 20290961051787748, guid: d975e66254b08984ab50d4c39dcb947f,
         type: 3}
       propertyPath: orthographic size
-      value: 9.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 20290961051787748, guid: d975e66254b08984ab50d4c39dcb947f,
         type: 3}
@@ -3965,12 +3986,12 @@ PrefabInstance:
     - target: {fileID: 5076707035970025954, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 152.04001
+      value: 77.14
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025954, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 11.849999
+      value: 12.349999
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
@@ -4000,7 +4021,7 @@ PrefabInstance:
     - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: timeBetweenStep
-      value: 0.3
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
@@ -4017,20 +4038,65 @@ PrefabInstance:
       propertyPath: stepSounds.Array.data[2]
       value: SpiderWalk3
       objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: chargeSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: timeBetweenCharge
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: poisonColor.r
+      value: 0.79280955
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: poisonColor.g
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: poisonColor.b
+      value: 0.112273075
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: poisonColor.a
+      value: 0.8980392
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: waterColor.g
+      value: 0.69103336
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: waterColor.b
+      value: 0.990566
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: waterColor.a
+      value: 0.8862745
+      objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025958, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_Name
-      value: BakedPlayer
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025966, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 152.1
+      value: 77.2
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025966, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.7
+      value: 12.2
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025966, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
