@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class BeeEnemy : MonoBehaviour
+public class Kamikaze : MonoBehaviour
 {
     // Start is called before the first frame update
     private Transform target;
@@ -13,20 +13,26 @@ public class BeeEnemy : MonoBehaviour
     public float attackRate;
     [SerializeField] private GameObject beeAttackParticle;
     [SerializeField] private Animator anim;
-  
+
 
     Path path;
     Seeker seeker;
     Rigidbody2D rb;
     int currentWaypoint = 0;
-    bool reachedEndOfPath= false;
-    bool isChasing=false;
+    bool reachedEndOfPath = false;
+    bool isChasing = false;
     bool isDead = false;
-    bool canAttackDirectly=true;
+    bool canAttackDirectly = true;
     bool isAttackReady;
     float attackRateValue;
     float xScaleValue;
-    
+    [Header("Kamikaze")]
+    [SerializeField] LayerMask layerMask;
+    [SerializeField] float kamikazeRange = 0.2f;
+    [SerializeField] float bombArea = 1f;
+    [SerializeField] float kamikazeDamage = 10f;
+    [SerializeField] float forceEffect = 10f;
+    [SerializeField] GameObject bombParticle;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -39,8 +45,8 @@ public class BeeEnemy : MonoBehaviour
     }
     void UpdatePath()
     {
-        if(seeker.IsDone()&& isChasing &&!isDead)
-        seeker.StartPath(rb.position, target.position, OnPathComplete);
+        if (seeker.IsDone() && isChasing && !isDead)
+            seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
     void OnPathComplete(Path p)
     {
@@ -54,6 +60,10 @@ public class BeeEnemy : MonoBehaviour
     void FixedUpdate()
     {
         float distance = Vector3.Distance(target.position, transform.position);
+        if (distance <= kamikazeRange)
+        {
+            Destroy(gameObject);
+        }
         if (distance < maxChaseRange && !isDead)
         {
             isChasing = true;
@@ -97,55 +107,70 @@ public class BeeEnemy : MonoBehaviour
 
         }
     }
-
-
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnDrawGizmosSelected()
     {
-        if (col.gameObject.tag == "Player" && !isDead && canAttackDirectly)
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, bombArea);
+    }
+
+    //private void OnCollisionEnter2D(Collision2D col)
+    //{
+    //    if (col.gameObject.tag == "Player" && !isDead&& canAttackDirectly)
+    //    {
+    //            DamagePlayer(col);
+    //        canAttackDirectly = false;
+
+
+    //    }
+    //    if (col.gameObject.tag == "WebBullet" &&!isDead)
+    //    {
+    //        Die();
+    //    }
+
+    //}
+    //private void OnCollisionStay2D(Collision2D col)
+    //{
+
+    //    if (col.gameObject.tag == "Player" && !isDead)
+    //    {
+    //        attackRateValue -= Time.deltaTime;
+    //        if (attackRateValue <= 0)
+    //        {
+    //            DamagePlayer(col);
+    //            attackRateValue = attackRate;
+    //        }
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    StartCoroutine(AttackExitDelay(0.5f));
+    //}
+
+    //IEnumerator AttackExitDelay(float waitTime)
+    //{
+    //    yield return new WaitForSeconds(waitTime);
+    //    canAttackDirectly = true;
+    //}
+    //void DamagePlayer(Collision2D col)
+    //    {
+    //    anim.SetTrigger("Attack");
+    //    GameObject particle = Instantiate(beeAttackParticle, col.transform.position, Quaternion.identity);
+    //        Destroy(particle, 0.7f);
+    //        col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
+    //    }
+
+    private void OnDisable()
+    {
+        var playerCollider = Physics2D.OverlapCircle(transform.position, bombArea, layerMask);
+        if (playerCollider != null)
         {
-            DamagePlayer(col);
-            canAttackDirectly = false;
-
-
-        }
-        if (col.gameObject.tag == "WebBullet" && !isDead)
-        {
-            Die();
-        }
-
-    }
-    private void OnCollisionStay2D(Collision2D col)
-    {
-
-        if (col.gameObject.tag == "Player" && !isDead)
-        {
-            attackRateValue -= Time.deltaTime;
-            if (attackRateValue <= 0)
-            {
-                DamagePlayer(col);
-                attackRateValue = attackRate;
-            }
+            Vector3 direction = playerCollider.transform.position - transform.position;
+            playerCollider.transform.GetComponent<PlayerController>().UpdateHealth(kamikazeDamage);
+            playerCollider.transform.GetComponent<Rigidbody2D>().AddForce(direction * forceEffect);
+            GameObject particle = Instantiate(bombParticle, transform.position, Quaternion.identity);
+            Destroy(particle, 0.7f);
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        StartCoroutine(AttackExitDelay(0.5f));
-    }
-
-    IEnumerator AttackExitDelay(float waitTime)
-    {
-        yield return new WaitForSeconds(waitTime);
-        canAttackDirectly = true;
-    }
-    void DamagePlayer(Collision2D col)
-    {
-        anim.SetTrigger("Attack");
-        GameObject particle = Instantiate(beeAttackParticle, col.transform.position, Quaternion.identity);
-        Destroy(particle, 0.7f);
-        col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
-    }
-
-
     public void Die()
     {
         isDead = true;
