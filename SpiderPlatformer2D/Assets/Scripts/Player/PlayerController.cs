@@ -181,7 +181,12 @@ public class PlayerController : MonoBehaviour
             audioManager.Play("WaterPop");
             Destroy(col.gameObject, 2f);
             UpdateHealth(-10);
-        }
+            if(playerHealth>100)
+            {
+                playerHealth = 100;
+                HealthBar.value = playerHealth;
+            }
+         }
       
     }
     private void OnCollisionEnter2D(Collision2D collision)
