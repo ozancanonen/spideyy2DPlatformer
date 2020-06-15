@@ -14,6 +14,7 @@ public class Boss : MonoBehaviour
     public Slider bossHealthSlider;
     public float bossHealth;
     public int attackDamage;
+    public float chargeForce;
     public int enragedAttackDamage = 40;
     private float maxBossHealth;
     public GameObject bossAttackParticle;
@@ -136,7 +137,6 @@ public class Boss : MonoBehaviour
         }
         if (col.gameObject.tag == "Player")
         {
-            Debug.Log("Attack");
             animator.SetTrigger("Attack");
         }
     }
@@ -156,6 +156,14 @@ public class Boss : MonoBehaviour
         shootPoint.rotation = Quaternion.Euler(0, 0, angleZ);
         GameObject poisonSmoke = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         poisonSmoke.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * poisonSmokeSpeed);
+    }
+
+    public void ChargeEvent()
+    {
+        Vector2 directionPLayer = player.transform.position -transform.position;
+        directionPLayer.y = 0;
+        GetComponent<Rigidbody2D>().AddForce(directionPLayer.normalized * chargeForce);
+        animator.GetComponent<Boss>().LookAtPlayer();
     }
 
     public void BombEvent()
