@@ -61,13 +61,12 @@ public class Enemy_behaviour : MonoBehaviour
 
         if (distance > attackDistance)
         {
-            Debug.Log("Stop Attack");
+
             StopAttack();
-            Debug.Log(distance);
+
         }
         else if (attackDistance >= distance && cooling == false)
         {
-            Debug.Log("Cooling false");
             Attack();
         }
 
@@ -95,7 +94,6 @@ public class Enemy_behaviour : MonoBehaviour
         timer = intTimer; //Reset Timer when Player enter Attack Range
         attackMode = true; //To check if Enemy can still attack or not
 
-        Debug.Log("Attacking");
         anim.SetBool("Attack", true);
     }
 
