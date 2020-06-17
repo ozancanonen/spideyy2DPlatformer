@@ -2736,6 +2736,7 @@ GameObject:
   - component: {fileID: 1411717651133477609}
   - component: {fileID: 1411717651133477526}
   - component: {fileID: 1411717651133477527}
+  - component: {fileID: 1090487850}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2866,6 +2867,18 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   mute: 0
+--- !u!114 &1090487850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1411717651133477611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b84df1ea167b6741984023611f8da0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1411717651179960400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,11 +3905,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.2
+      value: 45.3
       objectReference: {fileID: 0}
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.599999
+      value: -24.7
       objectReference: {fileID: 0}
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3983,15 +3996,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1411717651133477608}
     m_Modifications:
+    - target: {fileID: 5076707035970025953, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: glideTrail
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025954, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
-      value: 77.14
+      value: 45.239998
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025954, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: 12.349999
+      value: -26.95
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
@@ -4083,6 +4101,16 @@ PrefabInstance:
       propertyPath: waterColor.a
       value: 0.8862745
       objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: poisonDamage
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5076707035970025955, guid: c5ecdca180388154aa97fcedfbca7ef4,
+        type: 3}
+      propertyPath: poisonRate
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025958, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_Name
@@ -4091,12 +4119,12 @@ PrefabInstance:
     - target: {fileID: 5076707035970025966, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 77.2
+      value: 45.3
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025966, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.2
+      value: -27.1
       objectReference: {fileID: 0}
     - target: {fileID: 5076707035970025966, guid: c5ecdca180388154aa97fcedfbca7ef4,
         type: 3}
