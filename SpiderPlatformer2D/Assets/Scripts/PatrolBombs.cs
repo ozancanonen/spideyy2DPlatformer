@@ -23,7 +23,7 @@ public class PatrolBombs : MonoBehaviour
         //    bomb.GetComponent<Explode>().ExplodeBombs(explodeTime);
         //}
         //Destroy(gameObject);
-        enemy_Behaviour.TriggerCooling();
+        //enemy_Behaviour.TriggerCooling();
     }
 
 

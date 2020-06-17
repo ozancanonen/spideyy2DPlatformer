@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool isPoisoned;
     bool canCharge=true;
+    public bool isTouchingPlatforms = false;
 
     [Header("Wall Jump")]
     public LayerMask groundMask;
