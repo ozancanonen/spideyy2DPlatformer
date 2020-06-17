@@ -16,6 +16,7 @@ public class Glide : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         defaultGravity = rb.gravityScale;
+        glideTrail.GetComponent<ParticleSystem>().Stop();
     }
 
     void Update()
@@ -24,7 +25,8 @@ public class Glide : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && rb.velocity.y < -3f && glideGravity == false)
         {
             glideGravity = true;
-            glideTrail.SetActive(true);
+            glideTrail.GetComponent<ParticleSystem>().Play();
+            
             GetComponent<Rigidbody2D>().gravityScale = defaultGravity * glidingGravity;
         }
 
@@ -32,8 +34,8 @@ public class Glide : MonoBehaviour
         {
             if (glideGravity)
             {
+                glideTrail.GetComponent<ParticleSystem>().Stop();
                 glideGravity = false;
-                glideTrail.SetActive(false);
                 GetComponent<Rigidbody2D>().gravityScale = defaultGravity;
             }
         }
