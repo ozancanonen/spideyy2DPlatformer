@@ -12,7 +12,7 @@ public bool isDissolving;
     void Start()
     {
         material = GetComponent<SpriteRenderer>().material;
-        //isDissolving = true;
+        isDissolving = true;
     }
 
     // Update is called once per frame
@@ -20,15 +20,16 @@ public bool isDissolving;
     {
         if (isDissolving)
         {
-            fade -= Time.deltaTime*0.1f ;
+            fade -= Time.deltaTime* dissolveSpeed;
             if (fade <= 0f)
             {
                 fade = 0f;
                 isDissolving = false;
+                Debug.Log("fade0");
             }
             //Debug.Log("fade" + fade);
             //Debug.Log("_Fade"+material.GetFloat("fade"));
-            material.SetFloat("fade", fade);
+            material.SetFloat("_fade", fade);
         }
     }
     public void isDisolveTrue()//animasyonda event ile çağırılacak
