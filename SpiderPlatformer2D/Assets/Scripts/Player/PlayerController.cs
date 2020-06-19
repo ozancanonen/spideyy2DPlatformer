@@ -226,7 +226,7 @@ public class PlayerController : MonoBehaviour
             poisonParticleHitCount++;
             if (poisonParticleHitCount == 5)
             {
-                UpdateHealth(1f);
+                UpdateHealth(0.25f);
                 poisonDamageParticleUI.GetComponent<ParticleSystem>().Play();
                 poisonParticleHitCount = 0;
             }

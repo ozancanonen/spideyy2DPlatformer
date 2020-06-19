@@ -24,6 +24,7 @@ public class Enemy_behaviour : MonoBehaviour
     public LayerMask attackMask;
     public GameObject attackParticle;
     public float attackDamage;
+    public AudioSource dieAudio;
     #endregion
 
     #region Private Variables
@@ -195,6 +196,7 @@ public class Enemy_behaviour : MonoBehaviour
         rb.gravityScale = 0;
         dieCollider.enabled = false;
         bodyCollider.enabled = false;
+        dieAudio.Play();
         Destroy(gameObject, 2);
     }
     void OnDrawGizmosSelected()

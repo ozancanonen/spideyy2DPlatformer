@@ -5,6 +5,7 @@ using UnityEngine;
 public class Platform_Listener : MonoBehaviour
 {
     [SerializeField] GameObject stone;
+
     private void Awake()
     {
         SpiderBossIdle.CreateAllStones += DropStones;
@@ -15,5 +16,9 @@ public class Platform_Listener : MonoBehaviour
         {
             Instantiate(stone, child.transform.position, Quaternion.identity);
         }
+    }
+    public void OnDisable()
+    {
+        SpiderBossIdle.CreateAllStones -= DropStones;
     }
 }
