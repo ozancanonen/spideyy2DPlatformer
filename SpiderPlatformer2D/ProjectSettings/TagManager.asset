@@ -24,6 +24,7 @@ TagManager:
   - WaspBossBullet
   - SpiderSmoke
   - SpiderBomb
+  - BossPlatform
   layers:
   - Default
   - TransparentFX
