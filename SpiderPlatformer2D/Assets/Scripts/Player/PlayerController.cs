@@ -35,12 +35,19 @@ public class PlayerController : MonoBehaviour
     Grapple grapple;
     public Animator animator;
     public Slider HealthBar;
+    public Image HealthBarImage;
     public GameObject DeadMenu;
     public AudioManager audioManager;
     [SerializeField] GameObject webSnapParticle;
     [SerializeField] GameObject jumpParticle;
     [SerializeField] GameObject runParticle;
     [SerializeField] Transform groundCheck;
+
+    [Header ("UI")]
+    public GameObject RestoreParticleUI;
+    public GameObject damageParticleUI;
+    public GameObject poisonDamageParticleUI;
+    public Canvas canvas;
 
 
     //State
@@ -50,6 +57,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool isPoisoned;
     bool canCharge=true;
+    public bool isTouchingPlatforms = false;
 
     [Header("Wall Jump")]
     public LayerMask groundMask;
@@ -66,6 +74,7 @@ public class PlayerController : MonoBehaviour
     float timeBetweenStepValue;
     float timeBetweenChargeValueHolder;
     float poisonTime;
+    float poisonParticleHitCount;
     [SerializeField] int poisonDamage;
     [SerializeField] float poisonRate;
     void Start()
@@ -180,9 +189,19 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(EffectPlayerFor(1, waterColor, 2, 2));
             audioManager.Play("WaterPop");
             Destroy(col.gameObject, 2f);
+            RestoreParticleUI.GetComponent<ParticleSystem>().Play();
             UpdateHealth(-10);
-        }
-      
+            canvas.GetComponent<Animator>().SetTrigger("playerUIRestoreHealth");
+            if (playerHealth>100)
+            {
+                playerHealth = 100;
+                HealthBar.value = playerHealth;
+            }
+
+         }
+        
+
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -203,7 +222,14 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "SpiderSmoke")
         {
-            UpdateHealth(0.25f);
+
+            poisonParticleHitCount++;
+            if (poisonParticleHitCount == 5)
+            {
+                UpdateHealth(1f);
+                poisonDamageParticleUI.GetComponent<ParticleSystem>().Play();
+                poisonParticleHitCount = 0;
+            }
         }
     }
 
@@ -369,9 +395,13 @@ public class PlayerController : MonoBehaviour
     }
     public void UpdateHealth(float damage)
     {
-        
+        if (damage > 1)
+        {
+            damageParticleUI.GetComponent<ParticleSystem>().Play();
+        }
         playerHealth -= damage;
         HealthBar.value = playerHealth;
+        HealthBarImage.fillAmount = HealthBar.value / 100;
         if (HealthBar.value <= 0&& isAlive)
         {
             isAlive = false;
@@ -382,6 +412,7 @@ public class PlayerController : MonoBehaviour
         else if(isAlive&& damage>0)
         {
             animator.SetTrigger("isHurt");
+            canvas.GetComponent<Animator>().SetTrigger("playerUIGetDamage");
         }
     }
 

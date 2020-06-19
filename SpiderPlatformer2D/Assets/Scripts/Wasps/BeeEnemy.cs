@@ -13,6 +13,8 @@ public class BeeEnemy : MonoBehaviour
     public float attackRate;
     [SerializeField] private GameObject beeAttackParticle;
     [SerializeField] private Animator anim;
+    [SerializeField] private AudioSource dieAudio;
+
 
     Path path;
     Seeker seeker;
@@ -25,6 +27,7 @@ public class BeeEnemy : MonoBehaviour
     bool isAttackReady;
     float attackRateValue;
     float xScaleValue;
+    
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -72,7 +75,7 @@ public class BeeEnemy : MonoBehaviour
                 reachedEndOfPath = false;
             }
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-            Vector2 directionOfPlayer = ((Vector2)target.transform.position- rb.position).normalized;
+            Vector2 directionOfPlayer = ((Vector2)target.transform.position - rb.position).normalized;
             Vector2 force = direction * speed * Time.deltaTime;
             rb.AddForce(force);
             float distanceBetweenWaypoints = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -96,16 +99,17 @@ public class BeeEnemy : MonoBehaviour
         }
     }
 
+
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player" && !isDead&& canAttackDirectly)
+        if (col.gameObject.tag == "Player" && !isDead && canAttackDirectly)
         {
-                DamagePlayer(col);
+            DamagePlayer(col);
             canAttackDirectly = false;
 
 
         }
-        if (col.gameObject.tag == "WebBullet" &&!isDead)
+        if (col.gameObject.tag == "WebBullet" && !isDead)
         {
             Die();
         }
@@ -135,16 +139,18 @@ public class BeeEnemy : MonoBehaviour
         canAttackDirectly = true;
     }
     void DamagePlayer(Collision2D col)
-        {
+    {
         anim.SetTrigger("Attack");
         GameObject particle = Instantiate(beeAttackParticle, col.transform.position, Quaternion.identity);
-            Destroy(particle, 0.7f);
-            col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
-        }
+        Destroy(particle, 0.7f);
+        col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
+    }
+
 
     public void Die()
     {
         isDead = true;
+        dieAudio.Play();
         anim.SetTrigger("Die");
         Destroy(gameObject, 1.1f);
         rb.gravityScale = 2;

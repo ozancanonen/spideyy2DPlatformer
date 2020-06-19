@@ -11,6 +11,8 @@ public class Sound
     public AudioClip clip;
     [Range(0, 1f)]public float volume;
     [Range(0.1f, 3f)]public float pitch;
+    [Range(0, 1f)] public float spatialBlend;
+    public int maxDistance;
     public int priority;
     public bool loop;
     [HideInInspector] public AudioSource source;
