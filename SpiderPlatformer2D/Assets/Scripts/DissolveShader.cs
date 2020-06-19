@@ -25,7 +25,7 @@ public bool isDissolving;
             {
                 fade = 0f;
                 isDissolving = false;
-                Debug.Log("fade0");
+
             }
             //Debug.Log("fade" + fade);
             //Debug.Log("_Fade"+material.GetFloat("fade"));
