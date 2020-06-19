@@ -10,7 +10,6 @@ public class DamagePatroller : MonoBehaviour
     {
         if(collision.tag =="Player")
         {
-
             //buralarda animasyon olucak lan mk particle marticle de olur.. lan amına koyim
             enemyPatrolling.Die();
             patrolBombs.InstantiateBombs();

@@ -34,7 +34,7 @@ public class WaspBoss: MonoBehaviour
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject bullet;
     [SerializeField] float bulletSpeed;
-    [SerializeField] private AudioSource dieAudio;
+
     Path path;
     Seeker seeker;
     Rigidbody2D rb;
@@ -209,8 +209,7 @@ public class WaspBoss: MonoBehaviour
         Vector3 difference = target.transform.position - shootPoint.position;
         float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(0, 0, angleZ);
-        Vector3 bulletFaceDirection = shootPoint.eulerAngles + new Vector3(0, 0, -90);
-        GameObject bulletInstance = Instantiate(bullet, shootPoint.position, Quaternion.Euler(bulletFaceDirection));
+        GameObject bulletInstance = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         bulletInstance.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * bulletSpeed);
     }
 
@@ -243,7 +242,6 @@ public class WaspBoss: MonoBehaviour
     public void Die()
     {
         isDead = true;
-        dieAudio.Play();
         anim.SetTrigger("Die");
         Destroy(gameObject, 3f);
         rb.gravityScale = 4;

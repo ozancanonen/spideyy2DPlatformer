@@ -21,14 +21,6 @@ public class Thorn : MonoBehaviour
                 DamageParticles(col);
             }
         }
-        if (col.gameObject.tag =="Grappable")
-        {
-            if (col.gameObject.GetComponent<EnemyPatrolling>() != null)
-            {
-                col.gameObject.GetComponent<EnemyPatrolling>().Die();
-                DamageParticles(col);
-            }
-        }
     }
     void DamageParticles(Collision2D col)
     {

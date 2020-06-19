@@ -18,7 +18,6 @@ public class BeeProjectileEnemy : MonoBehaviour
     [SerializeField] Transform shootPoint;
     [SerializeField] GameObject bullet;
     [SerializeField] private Animator anim;
-    [SerializeField] private AudioSource dieAudio;
 
     Path path;
     Seeker seeker;
@@ -162,7 +161,6 @@ public class BeeProjectileEnemy : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        dieAudio.Play();
         anim.SetTrigger("Die");
         Destroy(gameObject, 1.1f);
         rb.gravityScale = 2;

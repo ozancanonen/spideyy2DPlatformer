@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
@@ -13,13 +11,9 @@ public class Boss : MonoBehaviour
     [HideInInspector] public bool isFlipped = false;
     bool isInVulnearable = false;
     [SerializeField] Animator wallAnim;
-    [Header("Sounds")]
-    [SerializeField] Sound[] spiderBossSounds;
-    [Header("")]
     public Slider bossHealthSlider;
     public float bossHealth;
     public int attackDamage;
-    public float chargeForce;
     public int enragedAttackDamage = 40;
     private float maxBossHealth;
     public GameObject bossAttackParticle;
@@ -35,26 +29,15 @@ public class Boss : MonoBehaviour
     [SerializeField] int bombCount = 3;
     [SerializeField] GameObject bomb;
 
+
     float speedValue;
     [SerializeField] GameObject defaultCamera;
     [SerializeField] GameObject bossCamera;
     private void Start()
     {
-        foreach (Sound s in spiderBossSounds)
-        {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip = s.clip;
-            s.source.volume = s.volume;
-            s.source.pitch = s.pitch;
-            s.source.priority = s.priority;
-            s.source.loop = s.loop;
-            s.source.spatialBlend = s.spatialBlend;
-            s.source.maxDistance = s.maxDistance;
-        }
         maxBossHealth = bossHealth;
         bossHealthSlider.maxValue = bossHealth;
         animator = GetComponent<Animator>();
-        Play("SpiderBossScream");
     }
     private void Update()
     {
@@ -65,7 +48,7 @@ public class Boss : MonoBehaviour
         Vector3 pos = transform.position;
         pos += transform.right * attackOffset.x;
         pos += transform.up * attackOffset.y;
-        Play("SpiderBossMelee");
+
         Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
         if (colInfo != null)
         {
@@ -132,15 +115,14 @@ public class Boss : MonoBehaviour
         else
         {
             //boss dead animation sounds etc.
-            Play("SpiderBossDie");
             animator.SetTrigger("Die");
             wallAnim.SetBool("isClosed", false);
             defaultCamera.SetActive(true);
             bossCamera.SetActive(false);
             GetComponent<BoxCollider2D>().enabled = false;
             GetComponent<CircleCollider2D>().enabled = false;
-            GetComponent<Rigidbody2D>().gravityScale = 0;
             GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            GetComponent<Rigidbody2D>().isKinematic = true;
             bossHealthSlider.gameObject.SetActive(false);
         }
     }
@@ -154,13 +136,9 @@ public class Boss : MonoBehaviour
         }
         if (col.gameObject.tag == "Player")
         {
+            Debug.Log("Attack");
             animator.SetTrigger("Attack");
         }
-    }
-    public void Play(string name)
-    {
-        Sound s = Array.Find(spiderBossSounds, sound => sound.name == name);
-        s.source.Play();
     }
     IEnumerator slowFor(float time)
     {
@@ -173,20 +151,11 @@ public class Boss : MonoBehaviour
 
     public void PoisonEvent() // Calling from Animation EVENT
     {
-        Play("Poison");
         Vector3 difference = player.transform.position - shootPoint.position;
         float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         shootPoint.rotation = Quaternion.Euler(0, 0, angleZ);
         GameObject poisonSmoke = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         poisonSmoke.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * poisonSmokeSpeed);
-    }
-
-    public void ChargeEvent()
-    {
-        Vector2 directionPLayer = player.transform.position -transform.position;
-        directionPLayer.y = 0;
-        GetComponent<Rigidbody2D>().AddForce(directionPLayer.normalized * chargeForce);
-        animator.GetComponent<Boss>().LookAtPlayer();
     }
 
     public void BombEvent()
@@ -198,7 +167,7 @@ public class Boss : MonoBehaviour
         for (int i =0; i<bombCount;i++)
         {
 
-            shootPoint.rotation = Quaternion.Euler(0, 0, angleZ+UnityEngine.Random.Range(-10,10));
+            shootPoint.rotation = Quaternion.Euler(0, 0, angleZ+Random.Range(-10,10));
             var newBomb = Instantiate(bomb, shootPoint.transform.position, Quaternion.identity);
             newBomb.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * bombThrowForce);
             newBomb.GetComponent<Explode>().ExplodeBombs(2);
