@@ -13,7 +13,8 @@ public class BeeEnemy : MonoBehaviour
     public float attackRate;
     [SerializeField] private GameObject beeAttackParticle;
     [SerializeField] private Animator anim;
-  
+    [SerializeField] private AudioSource dieAudio;
+
 
     Path path;
     Seeker seeker;
@@ -149,6 +150,7 @@ public class BeeEnemy : MonoBehaviour
     public void Die()
     {
         isDead = true;
+        dieAudio.Play();
         anim.SetTrigger("Die");
         Destroy(gameObject, 1.1f);
         rb.gravityScale = 2;

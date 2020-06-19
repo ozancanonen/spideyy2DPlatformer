@@ -16,7 +16,14 @@ public class Enemy_behaviour : MonoBehaviour
     [HideInInspector] public bool inRange; //Check if Player is in range
     public GameObject hotZone;
     public GameObject triggerArea;
-
+    [HideInInspector] public bool isDead;
+    public Collider2D dieCollider;
+    public Collider2D bodyCollider;
+    public Vector3 attackOffset;
+    public float attackRange = 1f;
+    public LayerMask attackMask;
+    public GameObject attackParticle;
+    public float attackDamage;
     #endregion
 
     #region Private Variables
@@ -26,16 +33,19 @@ public class Enemy_behaviour : MonoBehaviour
 
     private bool cooling; //Check if Enemy is cooling after attack
     private float intTimer;
+    private Rigidbody2D rb;
     #endregion
 
     void Awake()
     {
         SelectTarget();
         intTimer = timer; //Store the inital value of timer
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+        if (isDead) return;
         if (!attackMode)
         {
             Move();
@@ -155,7 +165,7 @@ public class Enemy_behaviour : MonoBehaviour
         }
         else
         {
-            Debug.Log("Twist");
+
             rotation.y = 0;
         }
 
@@ -164,5 +174,35 @@ public class Enemy_behaviour : MonoBehaviour
 
         transform.eulerAngles = rotation;
     }
-  
+    public void AttackAnimationEvent()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+        //Play("SpiderBossMelee");
+        Collider2D colInfo = Physics2D.OverlapCircle(pos, attackRange, attackMask);
+        if (colInfo != null)
+        {
+            GameObject bulletInstance = Instantiate(attackParticle, pos, Quaternion.identity);
+            colInfo.GetComponent<PlayerController>().UpdateHealth(attackDamage);
+        }
+    }
+    public void Die()
+    {
+        isDead = true;
+        anim.SetTrigger("getSquashed");
+        rb.velocity = Vector3.zero;
+        rb.gravityScale = 0;
+        dieCollider.enabled = false;
+        bodyCollider.enabled = false;
+        Destroy(gameObject, 2);
+    }
+    void OnDrawGizmosSelected()
+    {
+        Vector3 pos = transform.position;
+        pos += transform.right * attackOffset.x;
+        pos += transform.up * attackOffset.y;
+
+        Gizmos.DrawWireSphere(pos, attackRange);
+    }
 }

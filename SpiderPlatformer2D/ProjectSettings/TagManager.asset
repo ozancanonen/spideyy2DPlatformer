@@ -25,6 +25,7 @@ TagManager:
   - SpiderSmoke
   - SpiderBomb
   - BossPlatform
+  - PlatformStone
   layers:
   - Default
   - TransparentFX
@@ -70,4 +71,7 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2906590527
+    locked: 0
+  - name: UI
+    uniqueID: 2659007
     locked: 0

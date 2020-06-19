@@ -55,10 +55,10 @@ public class EnemyPatrolling : MonoBehaviour
     public void Die()
     {
         GetComponentInChildren<PatrolBombs>().InstantiateBombs();
-        Debug.Log("SSAAAAA" +gameObject.name);
         isDead = true;
         patrolAntAnim.SetTrigger("getSquashed");
         rigidbody.velocity = Vector3.zero;
+        rigidbody.gravityScale = 0;
         dieCollider.enabled = false;
         bodyCollider.enabled = false;
         Destroy(gameObject,2);

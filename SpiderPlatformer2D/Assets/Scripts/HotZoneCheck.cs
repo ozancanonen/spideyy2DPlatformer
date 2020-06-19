@@ -7,25 +7,25 @@ public class HotZoneCheck : MonoBehaviour
     private Enemy_behaviour enemyParent;
     private bool inRange;
     [SerializeField] Animator anim;
-    [SerializeField] float newSpeed = 10f;
+    [SerializeField] float newSpeed ;
     private float previousSpeed;
 
     private void Awake()
     {
-
         enemyParent = GetComponentInParent<Enemy_behaviour>();
+        newSpeed = enemyParent.moveSpeed + 4;
         previousSpeed = enemyParent.moveSpeed;
     }
     private void Update()
     {
-        if (inRange /*anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_attack")*/)
+        if (!enemyParent.isDead&&inRange /*anim.GetCurrentAnimatorStateInfo(0).IsName("Enemy_attack")*/)
         {
             enemyParent.Flip();
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (!enemyParent.isDead && collision.gameObject.CompareTag("Player"))
         {
             inRange = true;
             enemyParent.moveSpeed = newSpeed;
@@ -33,8 +33,9 @@ public class HotZoneCheck : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if(!enemyParent.isDead && collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("ant çıktı");
             inRange = false;
             gameObject.SetActive(false);
             enemyParent.triggerArea.SetActive(true);
