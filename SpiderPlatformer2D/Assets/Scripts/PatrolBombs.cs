@@ -12,8 +12,11 @@ public class PatrolBombs : MonoBehaviour
     [SerializeField] float explodeTime = 1.5f;
     [SerializeField] Enemy_behaviour enemy_Behaviour;
 
-   
-    public void InstantiateBombs()
+    public void animationEventCaller()
+    {
+        enemy_Behaviour.AttackAnimationEvent();
+    }
+        public void InstantiateBombs()
     {
 
         //for (int i = 0; i < patrolBombs.Length; i++)
