@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 6569104280109648602}
   m_Layer: 8
   m_Name: GameObject
-  m_TagString: Untagged
+  m_TagString: Grappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,8 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -15.920364, y: 8.508609}
+  - {x: -15.854137, y: 3.5697267}
+  - {x: -15.920811, y: 8.848586}
   - {x: -10.628601, y: 8.597823}
   - {x: 12.306046, y: -4.6826396}
   - {x: 16.10255, y: -4.4626956}

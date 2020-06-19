@@ -239,7 +239,7 @@ MonoBehaviour:
   speed: 1000
   escapeSpeed: 1000
   nextWaypointDistance: 1
-  maxChaseRange: 100
+  maxChaseRange: 13
   minShootRange: 8
   maxShootRange: 12
   attackRate: 2

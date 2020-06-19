@@ -197,8 +197,8 @@ public class PlayerController : MonoBehaviour
                 playerHealth = 100;
                 HealthBar.value = playerHealth;
             }
-
-         }
+            col.GetComponent<Collider2D>().enabled = false;
+        }
         
 
 

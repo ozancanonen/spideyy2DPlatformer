@@ -208,7 +208,7 @@ MonoBehaviour:
   speed: 1000
   chargeSpeed: 2000
   nextWaypointDistance: 1.5
-  maxChaseRange: 100
+  maxChaseRange: 13
   chargeRadious: 10
   attackRate: 1
   beeAttackParticle: {fileID: 9130828677919000287, guid: 68b610d7c433c04468313fd4ae9a5098,
