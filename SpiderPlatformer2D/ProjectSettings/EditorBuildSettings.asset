@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewLevelDesign.unity
     guid: 030d312b86c008b49ae21b598b301717
+  - enabled: 1
+    path: Assets/Scenes/Ugur.unity
+    guid: abd3e1d34e4c0f44ab398e854eb6076e
   m_configObjects: {}

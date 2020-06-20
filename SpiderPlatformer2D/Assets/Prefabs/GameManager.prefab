@@ -2906,7 +2906,6 @@ GameObject:
   - component: {fileID: 1411717651133477609}
   - component: {fileID: 1411717651133477526}
   - component: {fileID: 1411717651133477527}
-  - component: {fileID: 1090487850}
   - component: {fileID: 1756553166583678315}
   m_Layer: 0
   m_Name: GameManager
@@ -3038,9 +3037,9 @@ MonoBehaviour:
     priority: 0
     loop: 0
     source: {fileID: 0}
-  - name: SpiderWebShoot
-    clip: {fileID: 8300000, guid: bdb057c59a097874288c9329ea6b706c, type: 3}
-    volume: 0.3
+  - name: SpiderGrappleShoot
+    clip: {fileID: 8300000, guid: e5636e3fccab2244c897d8341ef89e78, type: 3}
+    volume: 0.25
     pitch: 1
     spatialBlend: 0
     maxDistance: 0
@@ -3074,19 +3073,25 @@ MonoBehaviour:
     priority: 0
     loop: 0
     source: {fileID: 0}
+  - name: WebShoot
+    clip: {fileID: 8300000, guid: 2d82aa41c68426a4d9118067458f0863, type: 3}
+    volume: 0.3
+    pitch: 1
+    spatialBlend: 1
+    maxDistance: 10
+    priority: 0
+    loop: 0
+    source: {fileID: 0}
+  - name: Glide
+    clip: {fileID: 8300000, guid: f790390c6111d554fabfd4b20d76ac3c, type: 3}
+    volume: 0.25
+    pitch: 1
+    spatialBlend: 0
+    maxDistance: 10
+    priority: 0
+    loop: 1
+    source: {fileID: 0}
   mute: 0
---- !u!114 &1090487850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1411717651133477611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b84df1ea167b6741984023611f8da0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1756553166583678315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3099,6 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b84df1ea167b6741984023611f8da0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingPos: {x: 0, y: 0}
 --- !u!1 &1411717651179960400
 GameObject:
   m_ObjectHideFlags: 0
@@ -3410,7 +3416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1411717651300092713}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -39.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1411717650583189065}
@@ -19052,7 +19058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.299999
+      value: -25.2
       objectReference: {fileID: 0}
     - target: {fileID: 4550523820536806, guid: d975e66254b08984ab50d4c39dcb947f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -19950,7 +19956,8 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 19
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2733735674412419862, guid: c5ecdca180388154aa97fcedfbca7ef4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c5ecdca180388154aa97fcedfbca7ef4, type: 3}
 --- !u!1 &4915206249412079544 stripped
 GameObject:

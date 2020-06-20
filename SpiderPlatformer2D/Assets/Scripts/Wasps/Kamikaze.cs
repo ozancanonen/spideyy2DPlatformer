@@ -114,21 +114,14 @@ public class Kamikaze : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, bombArea);
     }
 
-    //private void OnCollisionEnter2D(Collision2D col)
-    //{
-    //    if (col.gameObject.tag == "Player" && !isDead&& canAttackDirectly)
-    //    {
-    //            DamagePlayer(col);
-    //        canAttackDirectly = false;
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "WebBullet")
+        {
+            GetComponent<Animator>().SetTrigger("Explode");
+        }
 
-
-    //    }
-    //    if (col.gameObject.tag == "WebBullet" &&!isDead)
-    //    {
-    //        Die();
-    //    }
-
-    //}
+    }
     //private void OnCollisionStay2D(Collision2D col)
     //{
 

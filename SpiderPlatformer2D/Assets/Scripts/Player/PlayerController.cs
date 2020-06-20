@@ -83,11 +83,17 @@ public class PlayerController : MonoBehaviour
         grapple = GetComponentInChildren<Grapple>();
         rigidBody = GetComponent<Rigidbody2D>();
         gravityDefaultValue = rigidBody.gravityScale;
-        jumpSpeedValue= jumpSpeed;
+        jumpSpeedValue = jumpSpeed;
         runSpeedValue = runSpeed;
-        timeBetweenStepValue= timeBetweenStep;
-}
+        timeBetweenStepValue = timeBetweenStep;
 
+        PlayerPrefsProcess();
+    }
+
+    void PlayerPrefsProcess()
+    {
+        transform.position = PlayerPrefsController.Instance.LastCheckPoint();
+    }
 
     void Update()
     {
