@@ -13,6 +13,7 @@ public class Kamikaze : MonoBehaviour
     public float attackRate;
     [SerializeField] private GameObject beeAttackParticle;
     [SerializeField] private Animator anim;
+    [SerializeField] Transform explosionSpawnPos;
 
 
     Path path;
@@ -60,9 +61,9 @@ public class Kamikaze : MonoBehaviour
     void FixedUpdate()
     {
         float distance = Vector3.Distance(target.position, transform.position);
-        if (distance <= kamikazeRange)
+        if (distance <= kamikazeRange+3)
         {
-            Destroy(gameObject);
+            GetComponent<Animator>().SetTrigger("Explode");
         }
         if (distance < maxChaseRange && !isDead)
         {
@@ -159,7 +160,7 @@ public class Kamikaze : MonoBehaviour
     //        col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
     //    }
 
-    private void OnDisable()
+    public void OnNearbyEvent()
     {
         var playerCollider = Physics2D.OverlapCircle(transform.position, bombArea, layerMask);
         if (playerCollider != null)
@@ -167,16 +168,14 @@ public class Kamikaze : MonoBehaviour
             Vector3 direction = playerCollider.transform.position - transform.position;
             playerCollider.transform.GetComponent<PlayerController>().UpdateHealth(kamikazeDamage);
             playerCollider.transform.GetComponent<Rigidbody2D>().AddForce(direction * forceEffect);
-            GameObject particle = Instantiate(bombParticle, transform.position, Quaternion.identity);
+            GameObject particle = Instantiate(bombParticle, explosionSpawnPos.position, Quaternion.identity);
             Destroy(particle, 0.7f);
         }
     }
     public void Die()
     {
-        isDead = true;
-        anim.SetTrigger("Die");
-        Destroy(gameObject, 1.1f);
-        rb.gravityScale = 2;
+
+        Destroy(gameObject);
     }
 
 }
