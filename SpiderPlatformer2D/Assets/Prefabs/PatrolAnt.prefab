@@ -617,6 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPatrolling: {fileID: 6138253625887882410}
   patrolBombs: {fileID: 1989775817312311955}
+  forceMagnitude: 2000
 --- !u!61 &6138253627262000611
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -12,7 +12,6 @@ public class BasicPatrol : MonoBehaviour
     public Animator anim;
     [HideInInspector] public Transform target;
     [HideInInspector] public bool isDead;
-    public AudioSource dieAudio;
     public Collider2D dieCollider;
     public Collider2D bodyCollider;
     BoxCollider2D boxCollider2D;
@@ -107,7 +106,6 @@ public class BasicPatrol : MonoBehaviour
         rb.gravityScale = 0;
         dieCollider.enabled = false;
         bodyCollider.enabled = false;
-        dieAudio.Play();
         Destroy(gameObject, 2);
     }
 
