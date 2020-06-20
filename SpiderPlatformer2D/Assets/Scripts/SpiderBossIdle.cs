@@ -38,7 +38,7 @@ public class SpiderBossIdle : StateMachineBehaviour
             var randomNum = Random.Range(0, 10);
             if (playerController.isTouchingPlatforms && randomNum <= 2)
             {
-                CreateAllStones();
+                //CreateAllStones();
                 animator.SetTrigger("HittingGround");
                 return;
             }
@@ -56,7 +56,7 @@ public class SpiderBossIdle : StateMachineBehaviour
                     animator.SetTrigger("Bomb");
                     break;
                 case 2:
-                    CreateAllStones();
+                    //CreateAllStones();
                     animator.SetTrigger("HittingGround");
                     break;
             }

@@ -8,7 +8,7 @@ public class Platform_Listener : MonoBehaviour
 
     private void Awake()
     {
-        SpiderBossIdle.CreateAllStones += DropStones;
+        Boss.CreateAllStones += DropStones;
     }
     public void DropStones()
     {
@@ -19,6 +19,6 @@ public class Platform_Listener : MonoBehaviour
     }
     public void OnDisable()
     {
-        SpiderBossIdle.CreateAllStones -= DropStones;
+        Boss.CreateAllStones -= DropStones;
     }
 }
