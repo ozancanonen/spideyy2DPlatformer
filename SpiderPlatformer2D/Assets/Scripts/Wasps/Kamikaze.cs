@@ -168,9 +168,10 @@ public class Kamikaze : MonoBehaviour
             Vector3 direction = playerCollider.transform.position - transform.position;
             playerCollider.transform.GetComponent<PlayerController>().UpdateHealth(kamikazeDamage);
             playerCollider.transform.GetComponent<Rigidbody2D>().AddForce(direction * forceEffect);
-            GameObject particle = Instantiate(bombParticle, explosionSpawnPos.position, Quaternion.identity);
-            Destroy(particle, 0.7f);
+
         }
+        GameObject particle = Instantiate(bombParticle, explosionSpawnPos.position, Quaternion.identity);
+        Destroy(particle, 0.7f);
     }
     public void Die()
     {

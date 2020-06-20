@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b863fcec365d6c45ae9b19a38ff8fd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeParticle: {fileID: 476274254373350136, guid: cfb15762aad783f4893dc47adf71d32a,
+  explodeParticle: {fileID: 476274254373350136, guid: 3e196f0ac7ca72444b76df38d120bebf,
     type: 3}
   explodeRadius: 1.76
   whatToHit:

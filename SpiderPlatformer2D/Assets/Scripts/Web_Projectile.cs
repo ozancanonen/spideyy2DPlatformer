@@ -46,7 +46,7 @@ public class Web_Projectile : MonoBehaviour
         difference.Normalize();
         float rot2 = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-
+        pc.audioManager.Play("WebShoot");
         GameObject bullet = Instantiate(bulletPref, webPoint.position, Quaternion.Euler(0f, 0f, rot2));
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(difference.x, difference.y).normalized * bulletforce, ForceMode2D.Impulse);
