@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class Boss : MonoBehaviour
 {
@@ -44,8 +45,17 @@ public class Boss : MonoBehaviour
 
     public delegate void CreateStones();
     public static event CreateStones CreateAllStones;
+
+    [Header("Cam Shake Process")]
+    public CinemachineVirtualCamera virtualCamera;
+    private CinemachineBasicMultiChannelPerlin virtualCameraNoise;
+    public float shakePower = 2f;
+    public float frequencyPower = 2f;
+    public float shakeTime = 0.3f;
+
     private void Start()
     {
+
         foreach (Sound s in spiderBossSounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -61,6 +71,9 @@ public class Boss : MonoBehaviour
         bossHealthSlider.maxValue = bossHealth;
         animator = GetComponent<Animator>();
         Play("SpiderBossScream");
+
+        if (virtualCamera == null) { Debug.LogError("Virtial Camera has not been assigned"); return; }
+        virtualCameraNoise = virtualCamera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>();
     }
     private void Update()
     {
@@ -188,17 +201,25 @@ public class Boss : MonoBehaviour
     }
     public void HitGroundEvent() // Calling from Animation EVENT
     {
-/*        Play("Poison");*///yere vurma sesi
+        /*        Play("Poison");*///yere vurma sesi
         GameObject particle = Instantiate(hitGroundParticle, hitGroundPos.position, Quaternion.identity);
         Destroy(particle, 3);
         CreateAllStones();
+        StartCoroutine(CamShakeProcess());
 
     }
-
+    IEnumerator CamShakeProcess()
+    {
+        virtualCameraNoise.m_AmplitudeGain = shakePower;
+        virtualCameraNoise.m_FrequencyGain = frequencyPower;
+        yield return new WaitForSeconds(shakeTime);
+        virtualCameraNoise.m_AmplitudeGain = 0;
+        virtualCameraNoise.m_FrequencyGain = 0;
+    }
 
     public void ChargeEvent()
     {
-        Vector2 directionPLayer = player.transform.position -transform.position;
+        Vector2 directionPLayer = player.transform.position - transform.position;
         directionPLayer.y = 0;
         GetComponent<Rigidbody2D>().AddForce(directionPLayer.normalized * chargeForce);
         animator.GetComponent<Boss>().LookAtPlayer();
@@ -210,10 +231,10 @@ public class Boss : MonoBehaviour
         Vector3 difference = player.transform.position - shootPoint.position;
         float angleZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
 
-        for (int i =0; i<bombCount;i++)
+        for (int i = 0; i < bombCount; i++)
         {
 
-            shootPoint.rotation = Quaternion.Euler(0, 0, angleZ+UnityEngine.Random.Range(-10,10));
+            shootPoint.rotation = Quaternion.Euler(0, 0, angleZ + UnityEngine.Random.Range(-10, 10));
             var newBomb = Instantiate(bomb, shootPoint.transform.position, Quaternion.identity);
             newBomb.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * bombThrowForce);
             newBomb.GetComponent<Explode>().ExplodeBombs(2);
