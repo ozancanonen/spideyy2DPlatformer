@@ -11,6 +11,7 @@ public class Thorn : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             DamageParticles(col);
+            Debug.Log(gameObject.name);
             col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
         }
 
