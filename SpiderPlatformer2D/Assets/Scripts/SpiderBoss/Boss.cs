@@ -35,6 +35,9 @@ public class Boss : MonoBehaviour
     [SerializeField] int bombCount = 3;
     [SerializeField] GameObject bomb;
 
+
+    [SerializeField] GameObject hitGroundParticle;
+    [SerializeField] Transform hitGroundPos;
     float speedValue;
     [SerializeField] GameObject defaultCamera;
     [SerializeField] GameObject bossCamera;
@@ -180,6 +183,15 @@ public class Boss : MonoBehaviour
         GameObject poisonSmoke = Instantiate(bullet, shootPoint.position, Quaternion.identity);
         poisonSmoke.GetComponent<Rigidbody2D>().AddForce(shootPoint.right * poisonSmokeSpeed);
     }
+    public void HitGroundEvent() // Calling from Animation EVENT
+    {
+/*        Play("Poison");*///yere vurma sesi
+        GameObject particle = Instantiate(hitGroundParticle, hitGroundPos.position, Quaternion.identity);
+        Destroy(particle, 3);
+
+    }
+
+
 
     public void ChargeEvent()
     {
