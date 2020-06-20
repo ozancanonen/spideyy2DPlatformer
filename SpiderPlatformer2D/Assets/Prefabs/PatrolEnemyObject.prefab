@@ -233,12 +233,12 @@ PrefabInstance:
     - target: {fileID: 3617797635097268459, guid: d5a6d1c58962a3b4a893d483007690f4,
         type: 3}
       propertyPath: attackOffset.x
-      value: 1.66
+      value: 1.76
       objectReference: {fileID: 0}
     - target: {fileID: 3617797635097268459, guid: d5a6d1c58962a3b4a893d483007690f4,
         type: 3}
       propertyPath: attackOffset.y
-      value: 0.97
+      value: 0.96
       objectReference: {fileID: 0}
     - target: {fileID: 3617797635097268459, guid: d5a6d1c58962a3b4a893d483007690f4,
         type: 3}
@@ -261,6 +261,11 @@ PrefabInstance:
       propertyPath: dieAudio
       value: 
       objectReference: {fileID: 994922673448746939}
+    - target: {fileID: 3617797635097268459, guid: d5a6d1c58962a3b4a893d483007690f4,
+        type: 3}
+      propertyPath: attackRange
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6138253625887882411, guid: d5a6d1c58962a3b4a893d483007690f4,
         type: 3}
       propertyPath: m_BodyType
