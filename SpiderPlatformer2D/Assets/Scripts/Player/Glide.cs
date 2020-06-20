@@ -10,7 +10,7 @@ public class Glide : MonoBehaviour
     public float glideTime;
     public GameObject glideTrail;
     private Rigidbody2D rb;
-
+    public static bool canGlide = false;
 
     private void Start()
     {
@@ -21,6 +21,7 @@ public class Glide : MonoBehaviour
 
     void Update()
     {
+        if(!canGlide) { return; }
 
         if (Input.GetKey(KeyCode.Space) && rb.velocity.y < -3f && glideGravity == false)
         {

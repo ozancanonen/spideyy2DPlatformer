@@ -13,6 +13,11 @@ public class Thorn : MonoBehaviour
             DamageParticles(col);
             col.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
         }
+
+        if(col.gameObject.name =="Warmling")
+        {
+            col.gameObject.GetComponent<WormlingHealth>().GetDamage();
+        }
         if (col.gameObject.tag == "Pullable")
         {
             if (col.gameObject.GetComponent<BeeEnemy>() != null)

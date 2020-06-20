@@ -70,9 +70,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 58c86b491f058fd40bed3de9d3e8d096, type: 3}
-  m_Color: {r: 0, g: 0.42405367, b: 1, a: 1}
-  m_FlipX: 0
+  m_Sprite: {fileID: 21300000, guid: 1a58d8a83a4a41648a6eac6c7aaadd99, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 19.2, y: 10.8}
@@ -112,10 +112,11 @@ Transform:
   m_GameObject: {fileID: 6407807901188695629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25.431349, y: -25.229168, z: 4.1961684}
-  m_LocalScale: {x: 0.52077, y: 0.52077, z: 1}
+  m_LocalScale: {x: 0.84463686, y: 0.84463686, z: 1.6219}
   m_Children:
   - {fileID: 6407807903065427271}
   - {fileID: 3136974639680230664}
+  - {fileID: 7271588691489167722}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,7 +130,7 @@ Animator:
   m_GameObject: {fileID: 6407807901188695629}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7ff2487f99049014d8e9e52de547673f, type: 2}
+  m_Controller: {fileID: 9100000, guid: 78e2c2ccb92d5bc438eb6174262423f3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -235,9 +236,10 @@ MonoBehaviour:
   nextWaypointDistance: 1.5
   maxChaseRange: 100
   attackRate: 1
-  beeAttackParticle: {fileID: 9130828677919000287, guid: 68b610d7c433c04468313fd4ae9a5098,
+  beeAttackParticle: {fileID: 7003257764178436532, guid: 5f21383db70da95499230862c7c7f645,
     type: 3}
   anim: {fileID: 6407807901188695627}
+  explosionSpawnPos: {fileID: 7271588691489167722}
   layerMask:
     serializedVersion: 2
     m_Bits: 2048
@@ -245,7 +247,7 @@ MonoBehaviour:
   bombArea: 2
   kamikazeDamage: 10
   forceEffect: 100
-  bombParticle: {fileID: 476274254373350136, guid: c69716dbabebf6c45b7c3ba15448d5eb,
+  bombParticle: {fileID: 7003257764178436532, guid: 5f21383db70da95499230862c7c7f645,
     type: 3}
 --- !u!1 &6407807903065427270
 GameObject:
@@ -272,7 +274,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6407807903065427270}
   m_LocalRotation: {x: -0, y: -0, z: -0.75815105, w: 0.65207905}
-  m_LocalPosition: {x: 0.08999634, y: 0.13999939, z: 0.046019077}
+  m_LocalPosition: {x: 0.08999634, y: -1.07, z: 0.046019077}
   m_LocalScale: {x: 1, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 6407807901188695626}
@@ -292,11 +294,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.854
-  m_Color: {r: 0, g: 0.666193, b: 1, a: 1}
-  m_Intensity: 1.2
-  m_LightVolumeOpacity: 0.018
-  m_ApplyToSortingLayers: 000000003f0d3fad
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 0.071236044, b: 0.051886797, a: 1}
+  m_Intensity: 0.69
+  m_LightVolumeOpacity: 0
+  m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -305,8 +307,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensity: 0
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.3
-  m_PointLightOuterRadius: 5.1970825
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 1.4171928
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -319,3 +321,33 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &8433597512967705764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7271588691489167722}
+  m_Layer: 13
+  m_Name: ParticleSpawnPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7271588691489167722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433597512967705764}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.42, y: -0.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6407807901188695626}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

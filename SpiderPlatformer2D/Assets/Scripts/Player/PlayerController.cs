@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public static event DestroyWeb DestroyWebs;
 
     [HideInInspector] public float gravityDefaultValue;
-
     //Component Referances
     Rigidbody2D rigidBody;
     Grapple grapple;
