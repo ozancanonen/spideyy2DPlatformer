@@ -41,6 +41,9 @@ public class Boss : MonoBehaviour
     float speedValue;
     [SerializeField] GameObject defaultCamera;
     [SerializeField] GameObject bossCamera;
+
+    public delegate void CreateStones();
+    public static event CreateStones CreateAllStones;
     private void Start()
     {
         foreach (Sound s in spiderBossSounds)
@@ -188,9 +191,9 @@ public class Boss : MonoBehaviour
 /*        Play("Poison");*///yere vurma sesi
         GameObject particle = Instantiate(hitGroundParticle, hitGroundPos.position, Quaternion.identity);
         Destroy(particle, 3);
+        CreateAllStones();
 
     }
-
 
 
     public void ChargeEvent()

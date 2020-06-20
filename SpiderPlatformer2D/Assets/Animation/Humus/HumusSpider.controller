@@ -93,7 +93,7 @@ MonoBehaviour:
   PoisonMax: 16
   BombMax: 20
   Max: 22
-  yDif: 0
+  yDif: 2
 --- !u!1101 &-6347264950922281438
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
