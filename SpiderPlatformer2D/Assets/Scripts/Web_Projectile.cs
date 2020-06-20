@@ -11,7 +11,7 @@ public class Web_Projectile : MonoBehaviour
     public GameObject bulletPref;
     public float bulletforce;
     [SerializeField] Transform webPoint;
-
+    public static bool canWeb = false;
     PlayerController pc;
 
     float webTimer;
@@ -26,6 +26,7 @@ public class Web_Projectile : MonoBehaviour
     {
         if (pc.isAlive)
         {
+            if(!canWeb) { return; }
             webTimer += Time.deltaTime;
             if (Input.GetButtonDown("Fire1") && webTimer >= webRate)
             {

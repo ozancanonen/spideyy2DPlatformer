@@ -15,7 +15,7 @@ public class Grapple : MonoBehaviour
     public Transform shootPoint;
     public LineRenderer lineRenderer;
     public SpringJoint2D springJoint;
-
+    public static bool canGrapple = false;
     [HideInInspector] public bool isGrappled = false;
     [HideInInspector] public GameObject target;
 
@@ -31,6 +31,7 @@ public class Grapple : MonoBehaviour
     {
         if (playerController.isAlive)
         {
+            if(!canGrapple) { return; }
             if (Input.GetMouseButton(1) && !isGrappled && !isPulling)
             {
                 Shoot();

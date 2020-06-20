@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 5076707035970025966}
   - component: {fileID: 5076707035970025967}
   - component: {fileID: 5076707035970025964}
+  - component: {fileID: 2733735674412419862}
   - component: {fileID: 5076707035970025954}
   - component: {fileID: 5076707035970025955}
   - component: {fileID: 5076707035970025952}
@@ -110,6 +111,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.064725235, y: -0.07084884}
   m_Size: {x: 1.6115509, y: 1.1260911}
   m_Direction: 1
+--- !u!114 &2733735674412419862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076707035970025958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5b4261c96b7a64989f1697399eddb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!231 &5076707035970025954
 SpringJoint2D:
   m_ObjectHideFlags: 0
@@ -161,6 +174,7 @@ MonoBehaviour:
   gravityDefaultValue: 0
   animator: {fileID: 5076707036320550717}
   HealthBar: {fileID: 0}
+  HealthBarImage: {fileID: 0}
   DeadMenu: {fileID: 0}
   audioManager: {fileID: 0}
   webSnapParticle: {fileID: 9130828677919000287, guid: 2db8f332d1e88b34595ec48828ac739f,
@@ -169,6 +183,10 @@ MonoBehaviour:
     type: 3}
   runParticle: {fileID: 6239630971254347554}
   groundCheck: {fileID: 6639709478768251027}
+  RestoreParticleUI: {fileID: 0}
+  damageParticleUI: {fileID: 0}
+  poisonDamageParticleUI: {fileID: 0}
+  canvas: {fileID: 0}
   isAlive: 1
   isTouchingPlatforms: 0
   groundMask:
