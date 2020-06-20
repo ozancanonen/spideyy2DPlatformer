@@ -14,9 +14,9 @@ public class Stone : MonoBehaviour
         if (col != null)
         {
             col.transform.GetComponent<PlayerController>().UpdateHealth(damage);
-            var newParticle = Instantiate(particle, transform.position, Quaternion.identity);
-            Destroy(newParticle);
         }
+        var newParticle = Instantiate(particle, transform.position, Quaternion.identity);
+        Destroy(newParticle,3f);
         Destroy(gameObject);
     }
 
