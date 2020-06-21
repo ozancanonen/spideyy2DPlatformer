@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class JumpingEnemy : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
-    [SerializeField] float jumpForce;
     [SerializeField] float rightJumpForce;
     Collider2D collider2D;
+    Rigidbody2D rigidbody;
     Animator animator;
-    public float jumpTime = 2f;
-    private float timeCount = 0;
     private int multiplier = 1;
+    private float startingXScale;
     private void Awake()
     {
-        animator =GetComponent<Animator>();
+        startingXScale = transform.localScale.x;
+        animator = GetComponent<Animator>();
+        rigidbody = GetComponentInParent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
-        rigidbody = GetComponent<Rigidbody2D>();
     }
     public void Jump()
     {
@@ -25,28 +24,21 @@ public class JumpingEnemy : MonoBehaviour
         {
             case 0:
                 multiplier = 1;
+                transform.localScale = new Vector2(startingXScale , transform.localScale.y);
                 break;
             case 1:
                 multiplier = -1;
+                transform.localScale = new Vector2(-startingXScale, transform.localScale.y);
                 break;
         }
 
-        Vector3 forceDirection = Vector3.up * jumpForce;
-        forceDirection += rightJumpForce * multiplier*Vector3.right;
+        Vector3 forceDirection = transform.right * rightJumpForce * multiplier;
         rigidbody.AddForce(forceDirection);
     }
-
-    private void Update()
+    public void SetSpeedToZeroEvent()
     {
-        if(collider2D.IsTouchingLayers(LayerMask.GetMask("Ground")))
-        {
-            timeCount += Time.deltaTime;
-            if(timeCount>=jumpTime)
-            {
-                Debug.Log("Sa");
-                animator.SetTrigger("Jump");
-                timeCount = 0;
-            }
-        }
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.angularVelocity = 0;
     }
+    
 }
