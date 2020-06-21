@@ -6,12 +6,13 @@ public class Ombie : MonoBehaviour, INPC
 {
     public int playersCame { get; set; } = 0;
     bool playerCompleted = false;
+    public static bool npcEnder;
     public static int childCount = 0;
     public GameObject oldVirtualCamera;
     public GameObject newVirtualCamera;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(Web_Projectile.canWeb == true ) { return; }
+        if(npcEnder == true) { return; }
         playersCame++;
         if (collision.gameObject.tag == "Player")
         {
