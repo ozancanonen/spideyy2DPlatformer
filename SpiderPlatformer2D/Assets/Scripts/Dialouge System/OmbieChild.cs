@@ -28,7 +28,7 @@ public class OmbieChild : MonoBehaviour
 
             interactCol.enabled = false;
             StartCoroutine(StopRigidBodyAfter(3f));
-            if (Ombie.childCount == 3)
+            if (Ombie.childCount == 2)
             {
                 FindObjectOfType<Ombie>().QuestCompleted();
             }
