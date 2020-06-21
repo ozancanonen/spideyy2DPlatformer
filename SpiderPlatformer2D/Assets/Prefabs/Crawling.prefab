@@ -351,3 +351,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   wayPoints: []
+  crawlingEnemyDamage: 10
+  animator: {fileID: 1775669898}
