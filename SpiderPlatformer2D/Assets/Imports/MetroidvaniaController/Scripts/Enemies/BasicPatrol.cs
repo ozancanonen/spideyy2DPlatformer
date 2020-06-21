@@ -101,17 +101,18 @@ public class BasicPatrol : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        anim.SetTrigger("getSquashed");
-        rb.velocity = Vector3.zero;
-        rb.gravityScale = 0;
         dieCollider.enabled = false;
         bodyCollider.enabled = false;
+        anim.SetTrigger("getSquashed");
+        rb.velocity = Vector3.zero;
+        rb.gravityScale = 0;   
         Destroy(gameObject, 2);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+
+        if (!isDead && collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerController>().UpdateHealth(10);
         }

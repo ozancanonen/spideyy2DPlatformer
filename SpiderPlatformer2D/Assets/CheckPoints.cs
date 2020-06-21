@@ -18,7 +18,7 @@ public class CheckPoints : MonoBehaviour
                     wormling.RestoreHealth();
                 }
             }
-
+            collision.gameObject.GetComponent<PlayerController>().GetHealed();
             
         }
     }
