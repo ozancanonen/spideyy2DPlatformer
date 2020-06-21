@@ -31,6 +31,7 @@ public class Ombie : MonoBehaviour, INPC
     public void QuestCompleted()
     {
         playerCompleted = true;
+        GetComponent<Animator>().SetTrigger("HappyIdle");
         Web_Projectile.canWeb = true;
     }
     

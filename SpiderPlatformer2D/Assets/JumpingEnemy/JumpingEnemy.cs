@@ -14,7 +14,7 @@ public class JumpingEnemy : MonoBehaviour
     {
         startingXScale = transform.localScale.x;
         animator = GetComponent<Animator>();
-        rigidbody = GetComponentInParent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
     }
     public void Jump()
