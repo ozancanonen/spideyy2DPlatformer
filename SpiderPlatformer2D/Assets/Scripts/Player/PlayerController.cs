@@ -197,16 +197,20 @@ public class PlayerController : MonoBehaviour
             RestoreParticleUI.GetComponent<ParticleSystem>().Play();
             UpdateHealth(-10);
             canvas.GetComponent<Animator>().SetTrigger("playerUIRestoreHealth");
-            if (playerHealth>100)
+            if (playerHealth > 100)
             {
                 playerHealth = 100;
                 HealthBar.value = playerHealth;
             }
             col.GetComponent<Collider2D>().enabled = false;
         }
-        
+    }
 
-
+    public void GetHealed()
+    {
+        StartCoroutine(EffectPlayerFor(1, Color.green, 2, 2));
+        RestoreParticleUI.GetComponent<ParticleSystem>().Play();
+        UpdateHealth(-100);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -404,20 +408,27 @@ public class PlayerController : MonoBehaviour
         {
             damageParticleUI.GetComponent<ParticleSystem>().Play();
         }
+        
         playerHealth -= damage;
         HealthBar.value = playerHealth;
         HealthBarImage.fillAmount = HealthBar.value / 100;
-        if (HealthBar.value <= 0&& isAlive)
+        if (HealthBar.value <= 0 && isAlive)
         {
             isAlive = false;
             animator.SetTrigger("Die");
             DeadMenu.SetActive(true);
             rigidBody.constraints = RigidbodyConstraints2D.FreezePositionX;
         }
-        else if(isAlive&& damage>0)
+        else if (isAlive && damage > 0)
         {
             animator.SetTrigger("isHurt");
             canvas.GetComponent<Animator>().SetTrigger("playerUIGetDamage");
+        }
+        if (playerHealth>=100)
+        {
+            playerHealth = 100;
+            HealthBar.value = playerHealth;
+            HealthBarImage.fillAmount = HealthBar.value / 100;
         }
     }
 

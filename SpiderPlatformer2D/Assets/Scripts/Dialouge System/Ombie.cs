@@ -11,6 +11,7 @@ public class Ombie : MonoBehaviour, INPC
     public GameObject newVirtualCamera;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if(Grapple.canGrapple == true && Web_Projectile.canWeb == true ) { return; }
         playersCame++;
         if (collision.gameObject.tag == "Player")
         {

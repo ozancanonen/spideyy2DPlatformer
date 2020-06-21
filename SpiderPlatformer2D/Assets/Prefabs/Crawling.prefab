@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1775669897}
   - component: {fileID: 1775669899}
   - component: {fileID: 1775669898}
-  - component: {fileID: 1201240191}
   m_Layer: 0
   m_Name: Sprites
   m_TagString: Untagged
@@ -102,28 +101,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1201240191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1775669896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6885af02e53a2984b847ed4887d63ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolBombs:
-  - {fileID: 7758394106066621858, guid: 6878e0c735e1de54e8401718922526d8, type: 3}
-  - {fileID: 7758394106066621858, guid: 6878e0c735e1de54e8401718922526d8, type: 3}
-  - {fileID: 7758394106066621858, guid: 6878e0c735e1de54e8401718922526d8, type: 3}
-  randomYMin: 30
-  randomYMax: 120
-  randomXMin: 30
-  randomXMax: 120
-  explodeTime: 1.5
-  enemy_Behaviour: {fileID: 0}
 --- !u!1 &611983415365255956
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,36 +275,6 @@ Transform:
   - {fileID: 611983415535819255}
   - {fileID: 611983415365255959}
   m_Father: {fileID: 6138253625887882412}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4646062604434447434
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4590883987196882139}
-  m_Layer: 13
-  m_Name: Bombs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4590883987196882139
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4646062604434447434}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6138253625887882412}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6138253625887882413
@@ -360,7 +307,6 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1775669897}
-  - {fileID: 4590883987196882139}
   - {fileID: 2907586474088334576}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -375,7 +321,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 502110b437a1c144ca02f3f35f858022, type: 2}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.115347624, y: 0.42442226}
