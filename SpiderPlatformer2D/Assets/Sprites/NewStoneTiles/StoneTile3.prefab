@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8887794106693172534}
   m_Layer: 8
   m_Name: StoneTile3
-  m_TagString: Untagged
+  m_TagString: Grappable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4608100316474302487}
-  - component: {fileID: 6569104280109648602}
+  - component: {fileID: 2712000050708944302}
   m_Layer: 8
   m_Name: GameObject
   m_TagString: Grappable
@@ -113,8 +113,8 @@ Transform:
   m_Father: {fileID: 7810225621867598540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &6569104280109648602
-EdgeCollider2D:
+--- !u!60 &2712000050708944302
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,10 +127,42 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   m_Points:
-  - {x: -15.854137, y: 3.5697267}
-  - {x: -15.920811, y: 8.848586}
-  - {x: -10.628601, y: 8.597823}
-  - {x: 12.306046, y: -4.6826396}
-  - {x: 16.10255, y: -4.4626956}
+    m_Paths:
+    - - {x: -6.9647083, y: 6.8516097}
+      - {x: -10.530909, y: 8.651799}
+      - {x: -15.704449, y: 8.847377}
+      - {x: -15.5929985, y: 7.313443}
+      - {x: -15.62981, y: 5.8634033}
+      - {x: -15.789448, y: 5.273092}
+      - {x: -15.908924, y: 4.571824}
+      - {x: -15.944744, y: 4.169717}
+      - {x: -14.496204, y: 3.1712527}
+      - {x: -11.221857, y: 3.7794185}
+      - {x: -8.56653, y: 1.894463}
+      - {x: -7.8274174, y: 0.7528994}
+      - {x: -3.8210459, y: -0.52006143}
+      - {x: -5.64293, y: -0.048539396}
+      - {x: -4.255151, y: -1.721695}
+      - {x: -2.528748, y: -1.6747365}
+      - {x: -0.22052771, y: -2.4248188}
+      - {x: 0.5525743, y: -3.3623266}
+      - {x: 0.6264039, y: -4.1666923}
+      - {x: 1.2610705, y: -3.9436111}
+      - {x: 2.5518193, y: -6.8422775}
+      - {x: 5.9332743, y: -8.244565}
+      - {x: 8.083559, y: -7.1680355}
+      - {x: 10.131426, y: -8.354124}
+      - {x: 14.659893, y: -8.773208}
+      - {x: 14.9531975, y: -4.074259}
+      - {x: 11.881113, y: -4.0118027}
+      - {x: 1.8748479, y: 1.3482744}

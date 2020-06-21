@@ -5,11 +5,16 @@ using UnityEngine;
 public class JumpingEnemyHealth : MonoBehaviour
 {
     [SerializeField] float damage = 10f;
+    [SerializeField] Animator animator;
+    bool isDead = false;
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(isDead) { return; }
         if (collision.gameObject.GetComponent<Thorn>())
         {
-            Destroy(gameObject);
+            isDead = true;
+            animator.SetTrigger("getSquashed");
+            Destroy(gameObject,0.28f);
         }
         if(collision.gameObject.CompareTag("Player"))
         {
