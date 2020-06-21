@@ -10,7 +10,10 @@ public class OmbieChild : MonoBehaviour
     bool isTouched = false;
     bool isHided;
 
-
+    private void Start()
+    {
+        Ombie.childCount = 0;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isHided&& collision.gameObject.tag == "Player")
