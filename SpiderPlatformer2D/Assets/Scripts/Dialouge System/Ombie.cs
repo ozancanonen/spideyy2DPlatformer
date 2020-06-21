@@ -6,12 +6,12 @@ public class Ombie : MonoBehaviour, INPC
 {
     public int playersCame { get; set; } = 0;
     bool playerCompleted = false;
+    public static bool npcEnder;
     public static int childCount = 0;
-    public GameObject oldVirtualCamera;
-    public GameObject newVirtualCamera;
+    public int cameraIndex = 1;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(Web_Projectile.canWeb == true ) { return; }
+        if(npcEnder == true) { return; }
         playersCame++;
         if (collision.gameObject.tag == "Player")
         {
@@ -24,8 +24,9 @@ public class Ombie : MonoBehaviour, INPC
     IEnumerator cameraChangeAfter()
     {
         yield return new WaitForSeconds(2f);
-        oldVirtualCamera.SetActive(false);
-        newVirtualCamera.SetActive(true);
+        PlayerPrefsController.Instance.ChangeCameraIndex(cameraIndex);
+        //oldVirtualCamera.SetActive(false);
+        //newVirtualCamera.SetActive(true);
     }
     public void QuestCompleted()
     {
