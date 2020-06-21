@@ -206,7 +206,7 @@ public class Boss : MonoBehaviour
         Destroy(particle, 3);
         CreateAllStones();
         StartCoroutine(CamShakeProcess());
-
+        Play("SpiderBossSmash");
     }
     IEnumerator CamShakeProcess()
     {
@@ -223,6 +223,7 @@ public class Boss : MonoBehaviour
         directionPLayer.y = 0;
         GetComponent<Rigidbody2D>().AddForce(directionPLayer.normalized * chargeForce);
         animator.GetComponent<Boss>().LookAtPlayer();
+        Play("SpiderBossCharge");
     }
 
     public void BombEvent()
