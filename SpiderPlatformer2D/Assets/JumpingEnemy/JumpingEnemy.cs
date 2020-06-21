@@ -16,6 +16,7 @@ public class JumpingEnemy : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
+        animator.speed = Random.Range(0.8f, 1.2f);
     }
     public void Jump()
     {

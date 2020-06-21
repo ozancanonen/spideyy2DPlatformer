@@ -342,6 +342,8 @@ public class PlayerController : MonoBehaviour
             {
                 isJumping = true;
                 Vector2 jumpForce = new Vector2(0, jumpSpeed);
+                Debug.Log("jump");
+                audioManager.Play("PlayerJump");
                 GameObject jumpParticleObject = Instantiate(jumpParticle, groundCheck.position, Quaternion.identity);
                 jumpParticleObject.transform.parent = gameObject.transform;
                 Destroy(jumpParticleObject, 2f);
@@ -386,9 +388,15 @@ public class PlayerController : MonoBehaviour
     }
     private void getIfGrounded() 
     {
-        isGrounded=Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);//ağla ugur
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundMask);//ağla ugur
+        if (isJumping&& isGrounded)
+        {
+            Debug.Log("grounded");
+            audioManager.Play("PlayerLand");
+        }
         animator.SetBool("isJumping", false);
         isJumping = false;
+
 
 
     }
@@ -403,7 +411,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetBool("isJumping", false);
-            isJumping = false;
         }
 
         if (rigidBody.velocity.y < -.1f&&!isGrounded)

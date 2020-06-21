@@ -13,8 +13,9 @@ public class JumpingEnemyHealth : MonoBehaviour
         if (collision.gameObject.GetComponent<Thorn>())
         {
             isDead = true;
-            animator.SetTrigger("getSquashed");
-            Destroy(gameObject,0.28f);
+            animator.SetTrigger("Die");
+            GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(gameObject,1.5f);
         }
         if(collision.gameObject.CompareTag("Player"))
         {
