@@ -6,6 +6,10 @@ public class PlayerPrefsController : MonoBehaviour
 {
     public Vector2 startingPos;
     public static bool bornInStartingPos;
+    public GameObject[] cameraArray;
+
+    public static bool cameraChanged;
+    public int startingCameraIndex;
 
     private static PlayerPrefsController instance;
     public static PlayerPrefsController Instance
@@ -25,16 +29,36 @@ public class PlayerPrefsController : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        if(!bornInStartingPos)
+        if (!bornInStartingPos)
         {
             PlayerPrefs.SetFloat("PlayerXPos", startingPos.x);
             PlayerPrefs.SetFloat("PlayerYPos", startingPos.y);
             bornInStartingPos = true;
         }
-       
+
+        if (!cameraChanged)
+        {
+            PlayerPrefs.SetInt("CameraIndex", startingCameraIndex);
+            for (int i = 0; i < cameraArray.Length; i++)
+            {
+                if (startingCameraIndex == i)
+                {
+                    cameraArray[i].SetActive(true);
+                }
+                else
+                {
+                    cameraArray[i].SetActive(false);
+                }
+            }
+        }
+        else
+        {
+            ChangeCameraState();
+        }
+
     }
 
- 
+
     public void SavePosition(float x, float y)
     {
         PlayerPrefs.SetFloat("PlayerXPos", x);
@@ -45,4 +69,26 @@ public class PlayerPrefsController : MonoBehaviour
     {
         return new Vector2(PlayerPrefs.GetFloat("PlayerXPos"), PlayerPrefs.GetFloat("PlayerYPos"));
     }
+
+    public void ChangeCameraIndex(int index)
+    {
+        PlayerPrefs.SetInt("CameraIndex", index);
+        ChangeCameraState();
+    }
+
+    private void ChangeCameraState()
+    {
+        for(int i =0;i<cameraArray.Length;i++)
+        {
+            if (i == PlayerPrefs.GetInt("CameraIndex"))
+            {
+                cameraArray[i].SetActive(true);
+            }
+            else
+            {
+                cameraArray[i].SetActive(false);
+            }
+        }
+    }
+
 }
