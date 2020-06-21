@@ -74,8 +74,11 @@ public class PlayerController : MonoBehaviour
     float timeBetweenChargeValueHolder;
     float poisonTime;
     float poisonParticleHitCount;
+    float antParticleHitCount;
     [SerializeField] int poisonDamage;
     [SerializeField] float poisonRate;
+    [Header("AntParticle")]
+    public float antParticleDamage = 3f;
     void Start()
     {
         Time.timeScale = 1f;
@@ -238,6 +241,17 @@ public class PlayerController : MonoBehaviour
                 UpdateHealth(0.25f);
                 poisonDamageParticleUI.GetComponent<ParticleSystem>().Play();
                 poisonParticleHitCount = 0;
+            }
+        }
+
+        if(other.gameObject.tag=="AntParticle")
+        {
+            antParticleHitCount++;
+            if(antParticleHitCount==5)
+            {
+                UpdateHealth(antParticleDamage);
+                poisonDamageParticleUI.GetComponent<ParticleSystem>().Play();
+                antParticleHitCount = 0;
             }
         }
     }

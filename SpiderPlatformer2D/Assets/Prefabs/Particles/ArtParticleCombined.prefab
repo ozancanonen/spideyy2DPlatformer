@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6470965526803179654}
+  - component: {fileID: 6798212665098472950}
   m_Layer: 0
   m_Name: ArtParticleCombined
-  m_TagString: Untagged
+  m_TagString: AntParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,6 +33,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6798212665098472950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7077732598535907590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8156321a6ffc6184f990f160582ca66e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  firstWayPointSpeed: 3
+  secondWayPointSpeed: 10
 --- !u!1001 &1942179910567718770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -108,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477895182829006020, guid: 1660910600d57c84497cf108e15c0ce9,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1660910600d57c84497cf108e15c0ce9, type: 3}
@@ -198,6 +221,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ForceModule.y.scalar
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5477895182829006020, guid: 1660910600d57c84497cf108e15c0ce9,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1660910600d57c84497cf108e15c0ce9, type: 3}
