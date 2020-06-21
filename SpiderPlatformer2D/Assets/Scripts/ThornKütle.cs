@@ -33,7 +33,7 @@ public class ThornKütle : MonoBehaviour
                 //if (col.gameObject.GetComponent<Rigidbody2D>().velocity.magnitude > 0.001f)
                 //{
                     GameObject particle = Instantiate(kütleDestroyByRockParticle, kütleDestroyPos.position, Quaternion.identity);
-                particle.SetActive(true);
+                    particle.SetActive(true);
                     Destroy(particle, 3f);
                     Destroy(gameObject);
                 
