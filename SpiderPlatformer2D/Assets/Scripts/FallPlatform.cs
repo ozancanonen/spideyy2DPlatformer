@@ -23,7 +23,7 @@ public class FallPlatform : MonoBehaviour
     {
         float playerGravityScale = playerObject.GetComponent<Rigidbody2D>().gravityScale;
         playerObject.GetComponent<Rigidbody2D>().gravityScale = 1.5f;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         playerObject.GetComponent<Rigidbody2D>().gravityScale = playerGravityScale;
     }
 }
