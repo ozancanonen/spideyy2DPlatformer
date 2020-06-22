@@ -234,7 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1000
   nextWaypointDistance: 1.5
-  maxChaseRange: 100
+  maxChaseRange: 15
   attackRate: 1
   beeAttackParticle: {fileID: 7003257764178436532, guid: 5f21383db70da95499230862c7c7f645,
     type: 3}
