@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -11409,7 +11409,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &286335866
 PrefabInstance:
@@ -21692,7 +21692,7 @@ PrefabInstance:
     - target: {fileID: 5801457678293744367, guid: 54a9a1a2b7402af489d7303f940c20ef,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5801457678293744367, guid: 54a9a1a2b7402af489d7303f940c20ef,
         type: 3}
@@ -27871,7 +27871,7 @@ PrefabInstance:
     - target: {fileID: 5710104885012372152, guid: d0822bd1fa3c6d5459e2dbb16d40e267,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5710104885012372152, guid: d0822bd1fa3c6d5459e2dbb16d40e267,
         type: 3}
@@ -32406,7 +32406,7 @@ PrefabInstance:
     - target: {fileID: 3253098439882831368, guid: 4ccebed9ad5834e499456a427a1d8548,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3253098439882831368, guid: 4ccebed9ad5834e499456a427a1d8548,
         type: 3}
@@ -40244,7 +40244,7 @@ PrefabInstance:
     - target: {fileID: 7386155170421965752, guid: 47374db7fd68a1849859def1a456a341,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7386155170421965752, guid: 47374db7fd68a1849859def1a456a341,
         type: 3}
@@ -68955,7 +68955,7 @@ Transform:
   m_LocalScale: {x: 0.55702996, y: 0.55702996, z: 0.55702996}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 177.43501, z: -95.76401}
 --- !u!1001 &1688396851
 PrefabInstance:
@@ -80582,7 +80582,7 @@ PrefabInstance:
     - target: {fileID: 6586188273996670833, guid: faea1792a84c2b44f92b4b0b276c8af3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6586188273996670833, guid: faea1792a84c2b44f92b4b0b276c8af3,
         type: 3}
