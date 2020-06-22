@@ -190,6 +190,7 @@ public class Enemy_behaviour : MonoBehaviour
     }
     public void Die()
     {
+        if(isDead) { return; }
         isDead = true;
         anim.SetTrigger("getSquashed");
         rb.velocity = Vector3.zero;
@@ -197,6 +198,11 @@ public class Enemy_behaviour : MonoBehaviour
         dieCollider.enabled = false;
         bodyCollider.enabled = false;
         dieAudio.Play();
+        var explodingant = GetComponent<ExplodingAnt>();
+        if(explodingant!=null)
+        {
+            explodingant.InstantiateObjects();
+        }
         Destroy(gameObject, 2);
     }
     void OnDrawGizmosSelected()
