@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483527136694822405}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.92, y: 0, z: 0}
+  m_LocalPosition: {x: 6.92, y: -0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9136818917753126756}
@@ -126,7 +126,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8671179693169115837
+--- !u!114 &7685956865852634562
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,19 +135,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 4370121727047958656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b863fcec365d6c45ae9b19a38ff8fd4, type: 3}
+  m_Script: {fileID: 11500000, guid: d9e0e67c9bd0fd94a80043ab36890f8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explodeParticle:
-  - {fileID: 7758394106066621858, guid: c089d9c548d775544a99100e1639f161, type: 3}
-  - {fileID: 7758394106066621858, guid: c089d9c548d775544a99100e1639f161, type: 3}
-  - {fileID: 7758394106066621858, guid: c089d9c548d775544a99100e1639f161, type: 3}
+  explodeParticle: {fileID: 476274254373350136, guid: 8127b88df240cd74a82c8c01ccca8899,
+    type: 3}
   explodeRadius: 2
   whatToHit:
     serializedVersion: 2
     m_Bits: 2048
-  explodeDamage: 20
-  explodeForce: 200
+  explodeDamage: 10
+  objectsToExplode:
+  - {fileID: 7758394106066621858, guid: c089d9c548d775544a99100e1639f161, type: 3}
+  - {fileID: 7758394106066621858, guid: c089d9c548d775544a99100e1639f161, type: 3}
+  - {fileID: 7758394106066621858, guid: c089d9c548d775544a99100e1639f161, type: 3}
+  xForce: 200
+  yForce: 500
 --- !u!1 &5829999142913058741
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5829999142913058741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.3, y: 0, z: 0}
+  m_LocalPosition: {x: -8.3, y: -1.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9136818917753126756}

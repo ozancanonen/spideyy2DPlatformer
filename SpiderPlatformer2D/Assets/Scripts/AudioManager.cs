@@ -8,11 +8,24 @@ public class AudioManager : MonoBehaviour
 {
 
     public Sound[] sounds;//the array list of Sound script which will contain audio files
-    [HideInInspector] public bool mute=false;
-
+    [HideInInspector] public bool mute = false;
+    private static AudioManager instance;
+    public static AudioManager Instance
+    {
+      get
+        {
+            if (instance == null)
+            {
+                Debug.LogWarning("There is no PlayerPrefs in the hieararchy");
+            }
+            return instance;
+        }
+    }
     private void Awake()
     {
-        foreach(Sound s in sounds)
+        if (instance == null)
+            instance = this;
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2ab4187bd2e51284095aaf9fac156496, type: 3}
-  m_Color: {r: 0.990566, g: 0.07943219, b: 0.07943219, a: 1}
+  m_Color: {r: 0.92370236, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3676832759445652169}
   m_Layer: 8
   m_Name: ExplodeBombParticle
-  m_TagString: SpiderBomb
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
