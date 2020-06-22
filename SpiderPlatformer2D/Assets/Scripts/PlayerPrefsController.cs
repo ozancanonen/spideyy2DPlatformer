@@ -6,6 +6,7 @@ public class PlayerPrefsController : MonoBehaviour
 {
     public Vector2 startingPos;
     public static bool bornInStartingPos;
+    public static bool hasTakenATutorial = false;
     public GameObject[] cameraArray;
 
     public static bool cameraChanged;
@@ -58,7 +59,10 @@ public class PlayerPrefsController : MonoBehaviour
 
     }
 
-
+    public void SetTutorialCanvas(int value)
+    {
+        PlayerPrefs.SetInt("TutorialIndex",value);
+    }
     public void SavePosition(float x, float y)
     {
         PlayerPrefs.SetFloat("PlayerXPos", x);
